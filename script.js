@@ -89,40 +89,48 @@ function abrirModal(index) {
   produtoAtual = produtos[index];
 
   const modalContent = document.getElementById('modalContent');
-  modalContent.innerHTML = `
-    <div class="flex flex-col md:flex-row gap-6 w-full max-w-4xl mx-auto font-sans">
-      <div class="md:w-1/2 w-full">
-        <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-[300px] md:max-h-[500px] object-contain rounded border mx-auto" />
-        <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
-          ${produtoAtual.fotos.map(f => `<img src="${f}" width="60" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
-        </div>
+modalContent.innerHTML = `
+  <div class="flex flex-col gap-6 md:flex-row w-full max-w-4xl mx-auto font-sans">
+    <!-- Imagem principal e miniaturas -->
+    <div class="md:w-1/2 w-full">
+      <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-[300px] md:max-h-[500px] object-contain rounded border mx-auto" />
+      <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
+        ${produtoAtual.fotos.map(f => `<img src="${f}" width="50" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
       </div>
-      <div class="md:w-1/2 w-full text-gray-800">
-        <h2 id="modalNome" class="text-2xl font-semibold mb-2 text-center md:text-left leading-snug">${produtoAtual.nome}</h2>
-        <p id="modalPreco" class="text-2xl text-pink-600 font-bold mb-4 text-center md:text-left">R$ ${produtoAtual.preco.toFixed(2)}</p>
-        <div class="mb-3">
-          <label class="block text-sm font-medium">Tamanho</label>
-          <select id="modalTamanho" class="w-full border rounded px-3 py-2">
+    </div>
+
+    <!-- Informações e ações -->
+    <div class="md:w-1/2 w-full text-sm">
+      <h2 id="modalNome" class="text-lg font-semibold mb-1 text-center md:text-left">${produtoAtual.nome}</h2>
+      <p class="text-pink-600 font-bold text-center md:text-left mb-3 text-xl">R$ ${produtoAtual.preco.toFixed(2)}</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+        <div>
+          <label class="text-xs font-medium">Tamanho</label>
+          <select id="modalTamanho" class="w-full border rounded px-2 py-1 text-sm">
             ${produtoAtual.tamanhos.map(t => `<option>${t}</option>`).join('')}
           </select>
         </div>
-        <div class="mb-3">
-          <label class="block text-sm font-medium">Cor</label>
-          <select id="modalCor" class="w-full border rounded px-3 py-2">
+        <div>
+          <label class="text-xs font-medium">Cor</label>
+          <select id="modalCor" class="w-full border rounded px-2 py-1 text-sm">
             ${produtoAtual.cores.map(c => `<option>${c}</option>`).join('')}
           </select>
         </div>
-        <div class="mb-5">
-          <label class="block text-sm font-medium">Quantidade</label>
-          <input type="number" id="modalQtd" min="1" value="1" class="w-full border rounded px-3 py-2" />
-        </div>
-        <div class="flex flex-col sm:flex-row justify-between gap-3">
-          <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-6 py-2 rounded shadow hover:bg-pink-700">Adicionar</button>
-          <button onclick="fecharModal()" class="text-gray-600 border border-gray-400 px-6 py-2 rounded hover:bg-gray-100">Fechar</button>
+        <div class="sm:col-span-2">
+          <label class="text-xs font-medium">Quantidade</label>
+          <input type="number" id="modalQtd" min="1" value="1" class="w-full border rounded px-2 py-1 text-sm" />
         </div>
       </div>
+
+      <div class="flex justify-between gap-2">
+        <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-4 py-2 rounded text-sm w-1/2">Adicionar</button>
+        <button onclick="fecharModal()" class="border border-gray-400 text-gray-600 px-4 py-2 rounded text-sm w-1/2">Fechar</button>
+      </div>
     </div>
-  `;
+  </div>
+`;
+
 
   document.getElementById('modal').style.display = 'flex';
 }
