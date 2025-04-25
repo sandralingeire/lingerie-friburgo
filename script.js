@@ -92,7 +92,7 @@ function abrirModal(index) {
   modalContent.innerHTML = `
     <div class="flex flex-col md:flex-row gap-6 w-full max-w-4xl mx-auto font-sans">
       <div class="md:w-1/2 w-full">
-        <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-96 object-contain rounded border mx-auto" />
+        <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-[300px] md:max-h-[500px] object-contain rounded border mx-auto" />
         <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
           ${produtoAtual.fotos.map(f => `<img src="${f}" width="60" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
         </div>
