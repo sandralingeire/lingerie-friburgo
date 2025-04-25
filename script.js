@@ -67,6 +67,72 @@ const produtos = [
 ];
 
 
+const produtos = [
+  {
+    nome: 'Calcinha 1',
+    preco: 7.00,
+    tamanhos: ['Único'],
+    cores: ['Preto', 'Vermelho', 'Banco', 'Vinho', 'Rosa'],
+    fotos: [`${baseUrl}calcinha 1.1.webp`, `${baseUrl}calcinha 1.2.webp`, `${baseUrl}calcinha 1.3.webp`]
+  },
+  {
+    nome: 'Calcinha 2',
+    preco: 5.00,
+    tamanhos: ['Único'],
+    cores: ['Rosa', 'Preto', 'Branco', 'Verde', 'Vinho', 'Azul', 'Vermelho'],
+    fotos: [`${baseUrl}calcinha 2.1.webp`, `${baseUrl}calcinha 2.2.webp`, `${baseUrl}calcinha 2.3.webp`]
+  },
+  {
+    nome: 'Camisola',
+    preco: 25.00,
+    tamanhos: ['P', 'M', 'G'],
+    cores: ['Romance', 'Branco com preto', 'Vermelho', 'Preto', 'Azul', 'Caramelo'],
+    fotos: [`${baseUrl}camisola 1.webp`, `${baseUrl}camisola 2.webp`, `${baseUrl}camisola 3.webp`]
+  },
+  {
+    nome: 'Conjunto 1',
+    preco: 22.00,
+    tamanhos: ['P', 'M', 'G'],
+    cores: ['Preto', 'Vermelho', 'Branco', 'Rosa', 'Roxo'],
+    fotos: [`${baseUrl}conjunto 1.1.webp`, `${baseUrl}conjunto 1.2.webp`, `${baseUrl}conjunto 1.3.webp`]
+  },
+  {
+    nome: 'Conjunto 2',
+    preco: 18.00,
+    tamanhos: ['P', 'M', 'G'],
+    cores: ['Preto', 'Vermelho', 'Roxo', 'Banco', 'Azul'],
+    fotos: [`${baseUrl}conjunto 2.1.webp`, `${baseUrl}conjunto 2.2.webp`, `${baseUrl}conjunto 2.3.webp`]
+  },
+  {
+    nome: 'Conjunto 3',
+    preco: 18.00,
+    tamanhos: ['P', 'M', 'G'],
+    cores: ['Rosa', 'Verde', 'Azul', 'Vinho', 'Preto'],
+    fotos: [`${baseUrl}conjunto 3.1.webp`, `${baseUrl}conjunto 3.2.webp`, `${baseUrl}conjunto 3.3.webp`]
+  },
+  {
+    nome: 'Conjunto 4',
+    preco: 30.00,
+    tamanhos: ['P', 'M', 'G'],
+    cores: ['Preto', 'Vermelho', 'Branco', 'Rosa', 'Roxo'],
+    fotos: [`${baseUrl}conjunto 4.1.webp`, `${baseUrl}conjunto 4.2.webp`, `${baseUrl}conjunto 4.3.webp`]
+  },
+  {
+    nome: 'Conjunto 5',
+    preco: 20.00,
+    tamanhos: ['P', 'M', 'G'],
+    cores: ['Rosa', 'Preto', 'Vermelho', 'Branco', 'Roxo'],
+    fotos: [`${baseUrl}conjunto 5.1.webp`, `${baseUrl}conjunto 5.2.webp`, `${baseUrl}conjunto 5.3.webp`]
+  },
+  {
+    nome: 'Conjunto de 3 Peças',
+    preco: 28.00,
+    tamanhos: ['M', 'G', 'GG'],
+    cores: ['Vermelho', 'Preto', 'Roxo', 'Azul', 'Rosa'],
+    fotos: [`${baseUrl}conjunto de 3 pecas 1.webp`, `${baseUrl}conjunto de 3 pecas 2.webp`, `${baseUrl}conjunto de 3 pecas 3.webp`]
+  }
+];
+
 const carrinho = [];
 let produtoAtual = null;
 
@@ -87,22 +153,42 @@ function renderProdutos() {
 
 function abrirModal(index) {
   produtoAtual = produtos[index];
-  const imagemPrincipal = document.getElementById('imagemPrincipal');
-  imagemPrincipal.src = produtoAtual.fotos[0];
 
-  document.getElementById('modalNome').innerText = produtoAtual.nome;
-  document.getElementById('modalPreco').innerText = `R$ ${produtoAtual.preco.toFixed(2)}`;
-
-  const miniaturas = produtoAtual.fotos.map(f => 
-    `<img src="${f}" width="70" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`
-  ).join('');
-  document.getElementById('modalMiniaturas').innerHTML = miniaturas;
-
-  const tamanhoSel = document.getElementById('modalTamanho');
-  tamanhoSel.innerHTML = produtoAtual.tamanhos.map(t => `<option>${t}</option>`).join('');
-
-  const corSel = document.getElementById('modalCor');
-  corSel.innerHTML = produtoAtual.cores.map(c => `<option>${c}</option>`).join('');
+  const modalContent = document.getElementById('modalContent');
+  modalContent.innerHTML = `
+    <div class="flex flex-col md:flex-row gap-6 w-full max-w-4xl mx-auto">
+      <div class="md:w-1/2 w-full">
+        <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-96 object-contain rounded border mx-auto" />
+        <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
+          ${produtoAtual.fotos.map(f => `<img src="${f}" width="60" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
+        </div>
+      </div>
+      <div class="md:w-1/2 w-full">
+        <h2 id="modalNome" class="text-xl font-semibold mb-2 text-center md:text-left">${produtoAtual.nome}</h2>
+        <p id="modalPreco" class="text-pink-600 font-bold mb-2 text-center md:text-left">R$ ${produtoAtual.preco.toFixed(2)}</p>
+        <div class="mb-2">
+          <label class="block text-sm font-medium">Tamanho</label>
+          <select id="modalTamanho" class="w-full border rounded px-2 py-1">
+            ${produtoAtual.tamanhos.map(t => `<option>${t}</option>`).join('')}
+          </select>
+        </div>
+        <div class="mb-2">
+          <label class="block text-sm font-medium">Cor</label>
+          <select id="modalCor" class="w-full border rounded px-2 py-1">
+            ${produtoAtual.cores.map(c => `<option>${c}</option>`).join('')}
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium">Quantidade</label>
+          <input type="number" id="modalQtd" min="1" value="1" class="w-full border rounded px-2 py-1" />
+        </div>
+        <div class="flex flex-col sm:flex-row justify-between gap-2">
+          <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-4 py-2 rounded">Adicionar</button>
+          <button onclick="fecharModal()" class="text-gray-600 border border-gray-400 px-4 py-2 rounded">Fechar</button>
+        </div>
+      </div>
+    </div>
+  `;
 
   document.getElementById('modal').style.display = 'flex';
 }
@@ -203,5 +289,4 @@ async function finalizarPedido() {
 function removerItemCarrinho(index) {
   carrinho.splice(index, 1);
   renderCarrinho();
-}
 }
