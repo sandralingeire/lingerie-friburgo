@@ -179,6 +179,12 @@ function renderCarrinho() {
   totalSpan.innerText = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
 }
 
+function removerItemCarrinho(index) {
+  carrinho.splice(index, 1);
+  renderCarrinho();
+}
+
+
 renderProdutos();
 
 async function finalizarPedido() {
