@@ -207,7 +207,6 @@ async function finalizarPedido() {
             "Cor": item.cor,
             "Preço": item.preco,
             "Quantidade": item.quantidade,
-            "WhatsApp": celular
           }
         }
       ]
