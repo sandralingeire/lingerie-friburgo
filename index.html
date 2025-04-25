@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lingerie Friburgo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-6xl mx-auto px-4 py-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">Lingerie Friburgo</h1>
+
+    <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 hidden justify-center items-center z-50">
+      <div class="bg-white p-6 rounded-lg w-[90%] max-w-sm mx-auto">
+        <h2 id="modalNome" class="text-xl font-semibold mb-2 text-center"></h2>
+        <div id="modalFotos" class="flex flex-wrap justify-center gap-2 mb-4"></div>
+        <div class="mb-2">
+          <label class="block text-sm font-medium">Tamanho</label>
+          <select id="modalTamanho" class="w-full border rounded px-2 py-1"></select>
+        </div>
+        <div class="mb-2">
+          <label class="block text-sm font-medium">Cor</label>
+          <select id="modalCor" class="w-full border rounded px-2 py-1"></select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium">Quantidade</label>
+          <input type="number" id="modalQtd" min="1" value="1" class="w-full border rounded px-2 py-1" />
+        </div>
+        <div class="flex flex-col sm:flex-row justify-between gap-2">
+          <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-4 py-2 rounded">Adicionar</button>
+          <button onclick="fecharModal()" class="text-gray-600 border border-gray-400 px-4 py-2 rounded">Fechar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="carrinho" class="mt-10">
+      <h2 class="text-2xl font-semibold mb-4">Carrinho</h2>
+      <ul id="listaCarrinho" class="space-y-2"></ul>
+      <p id="totalCarrinho" class="text-lg font-bold mt-4">Total: R$ 0,00</p>
+    </div>
+
+    <div id="dadosComprador" class="mt-10">
+      <h2 class="text-2xl font-semibold mb-4">Identificação</h2>
+      <div class="mb-2">
+        <label class="block text-sm font-medium">Nome</label>
+        <input type="text" id="inputNome" class="w-full border rounded px-3 py-2" />
+      </div>
+      <div class="mb-4">
+        <label class="block text-sm font-medium">Turma</label>
+        <select id="inputTurma" class="w-full border rounded px-3 py-2">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="Outro setor">Outro setor</option>
+        </select>
+      </div>
+      <button onclick="finalizarPedido()" class="w-full sm:w-auto bg-green-600 text-white px-6 py-2 rounded">Finalizar Pedido</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

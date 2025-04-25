@@ -1,0 +1,32 @@
+.produto-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 180px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+#carrinho {
+  margin-top: 30px;
+  border-top: 2px solid black;
+  padding-top: 10px;
+}
