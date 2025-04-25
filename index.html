@@ -1,59 +1,58 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Lingerie Friburgo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
-</head>
 <body class="bg-rose-50 text-gray-800">
-
   <div class="max-w-6xl mx-auto px-4 py-6">
     <h1 class="text-4xl font-bold text-pink-600 mb-8 text-center">Lingerie Friburgo</h1>
 
-    <!-- Produtos -->
+    <!-- Produtos em Grid -->
     <div id="produtos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-
-
-    <!-- Modal de detalhes -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 hidden justify-center items-start z-50 overflow-y-auto py-6 px-2">
-  <div id="modalContent" class="bg-white p-4 sm:p-6 rounded-lg w-[90vw] max-w-2xl mx-auto"></div>
-</div>
-
-    <!-- Carrinho -->
-    <div id="carrinho" class="mt-10">
-      <h2 class="text-2xl font-semibold mb-4">Carrinho</h2>
-      <ul id="listaCarrinho" class="space-y-2"></ul>
-      <p id="totalCarrinho" class="text-lg font-bold mt-4">Total: R$ 0,00</p>
+      <!-- Os cards serão inseridos dinamicamente aqui pelo script.js -->
     </div>
 
-    <!-- Dados do comprador -->
-    <div id="dadosComprador" class="mt-10">
-      <h2 class="text-2xl font-semibold mb-4">Identificação</h2>
-      <div class="mb-2">
-        <label class="block text-sm font-medium">Nome</label>
-        <input type="text" id="inputNome" class="w-full border rounded px-3 py-2" />
+    <!-- Carrinho + Dados do Comprador -->
+    <div class="flex flex-col items-center justify-center mt-16 space-y-10">
+
+      <!-- CARRINHO -->
+      <div id="carrinho" class="w-full max-w-2xl px-4">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Carrinho</h2>
+        <ul id="listaCarrinho" class="space-y-2"></ul>
+        <p id="totalCarrinho" class="text-lg font-bold mt-4 text-center">Total: R$ 0,00</p>
       </div>
-      <div class="mb-4">
-        <label class="block text-sm font-medium">Turma</label>
-        <select id="inputTurma" class="w-full border rounded px-3 py-2">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="Outro setor">Outro setor</option>
-        </select>
+
+      <!-- FORMULÁRIO DO COMPRADOR -->
+      <div id="dadosComprador" class="w-full max-w-2xl px-4">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Identificação</h2>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium">Nome</label>
+          <input type="text" id="inputNome" class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium">Turma</label>
+          <select id="inputTurma" class="w-full border rounded px-3 py-2">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="Outro setor">Outro setor</option>
+          </select>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-sm font-medium">Celular</label>
+          <input type="text" id="inputCelular" placeholder="(XX) XXXXX-XXXX" class="w-full border rounded px-3 py-2" />
+        </div>
+
+        <button onclick="finalizarPedido()" class="w-full sm:w-auto bg-green-600 text-white px-6 py-2 rounded">
+          Finalizar Pedido
+        </button>
       </div>
-      <button onclick="finalizarPedido()" class="w-full sm:w-auto bg-green-600 text-white px-6 py-2 rounded">Finalizar Pedido</button>
     </div>
+  </div>
+
+  <!-- MODAL DE DETALHES -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 hidden justify-center items-start z-50 overflow-y-auto py-6 px-2">
+    <div id="modalContent" class="bg-white p-4 sm:p-6 rounded-lg w-[90vw] max-w-2xl mx-auto"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
-</html>
