@@ -87,16 +87,16 @@ function renderProdutos() {
 
 function abrirModal(index) {
   produtoAtual = produtos[index];
+  const imagemPrincipal = document.getElementById('imagemPrincipal');
+  imagemPrincipal.src = produtoAtual.fotos[0];
+
   document.getElementById('modalNome').innerText = produtoAtual.nome;
- const imagemPrincipal = document.getElementById('imagemPrincipal');
-imagemPrincipal.src = produtoAtual.fotos[0];
+  document.getElementById('modalPreco').innerText = `R$ ${produtoAtual.preco.toFixed(2)}`;
 
-const miniaturas = produtoAtual.fotos.map(f => 
-  `<img src="${f}" width="70" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border" />`
-).join('');
-
-document.getElementById('modalMiniaturas').innerHTML = miniaturas;
-
+  const miniaturas = produtoAtual.fotos.map(f => 
+    `<img src="${f}" width="70" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`
+  ).join('');
+  document.getElementById('modalMiniaturas').innerHTML = miniaturas;
 
   const tamanhoSel = document.getElementById('modalTamanho');
   tamanhoSel.innerHTML = produtoAtual.tamanhos.map(t => `<option>${t}</option>`).join('');
@@ -151,35 +151,8 @@ function renderCarrinho() {
   totalSpan.innerText = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
 }
 
-
-
 renderProdutos();
 
-function finalizarPedido() {
-  const nome = document.getElementById('inputNome').value.trim();
-  const turma = document.getElementById('inputTurma').value;
-
-  if (!nome || carrinho.length === 0) {
-    alert('Preencha seu nome e adicione pelo menos um item ao carrinho.');
-    return;
-  }
-
-  // Aqui será feita a integração com Airtable
-  console.log('Enviando para banco de dados:');
-  carrinho.forEach(item => {
-    console.log({
-      nome,
-      turma,
-      produto: item.nome,
-      tamanho: item.tamanho,
-      cor: item.cor,
-      preco: item.preco,
-      quantidade: item.quantidade
-    });
-  });
-
-  alert('Pedido finalizado! (simulação)');
-}
 async function finalizarPedido() {
   const nome = document.getElementById('inputNome').value.trim();
   const turma = document.getElementById('inputTurma').value;
@@ -230,4 +203,5 @@ async function finalizarPedido() {
 function removerItemCarrinho(index) {
   carrinho.splice(index, 1);
   renderCarrinho();
+}
 }
