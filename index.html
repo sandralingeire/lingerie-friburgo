@@ -30,40 +30,44 @@
     <!-- Seção Centralizada: Carrinho + Formulário -->
     <div class="flex flex-col items-center justify-center mt-16 space-y-10">
 
-      <!-- Carrinho -->
-      <div id="carrinho" class="w-full max-w-2xl px-4">
-        <h2 class="text-2xl font-semibold mb-4 text-center">Carrinho</h2>
-        <ul id="listaCarrinho" class="space-y-2"></ul>
-        <p id="totalCarrinho" class="text-lg font-bold mt-4 text-center">Total: R$ 0,00</p>
+      <div class="flex flex-col items-center justify-center mt-16">
+  <div class="bg-rose-200 shadow-md rounded-lg p-6 w-full max-w-2xl space-y-8">
+    
+    <!-- Carrinho -->
+    <div id="carrinho">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Carrinho</h2>
+      <ul id="listaCarrinho" class="space-y-2"></ul>
+      <p id="totalCarrinho" class="text-lg font-bold mt-4 text-center">Total: R$ 0,00</p>
+    </div>
+
+    <!-- Dados do comprador -->
+    <div id="dadosComprador">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Identificação</h2>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium">Nome</label>
+        <input type="text" id="inputNome" class="w-full border rounded px-3 py-2" />
       </div>
 
-      <!-- Dados do comprador -->
-      <div id="dadosComprador" class="w-full max-w-2xl px-4">
-        <h2 class="text-2xl font-semibold mb-4 text-center">Identificação</h2>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium">Nome</label>
-          <input type="text" id="inputNome" class="w-full border rounded px-3 py-2" />
-        </div>
-
-        <div class="mb-4">
-          <label class="block text-sm font-medium">Turma</label>
-          <select id="inputTurma" class="w-full border rounded px-3 py-2">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="Outro setor">Outro setor</option>
-          </select>
-        </div>
-
-        <button onclick="finalizarPedido()" class="w-full sm:w-auto bg-green-600 text-white px-6 py-2 rounded">
-          Finalizar Pedido
-        </button>
+      <div class="mb-4">
+        <label class="block text-sm font-medium">Turma</label>
+        <select id="inputTurma" class="w-full border rounded px-3 py-2">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="Outro setor">Outro setor</option>
+        </select>
       </div>
+
+      <button onclick="finalizarPedido()" class="w-full sm:w-auto bg-green-600 text-white px-6 py-2 rounded">
+        Finalizar Pedido
+      </button>
     </div>
   </div>
+</div>
 
+     
   <script src="script.js"></script>
 </body>
 </html>
