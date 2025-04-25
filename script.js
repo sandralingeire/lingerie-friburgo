@@ -88,8 +88,15 @@ function renderProdutos() {
 function abrirModal(index) {
   produtoAtual = produtos[index];
   document.getElementById('modalNome').innerText = produtoAtual.nome;
-  const fotos = produtoAtual.fotos.map(f => `<img src="${f}" width="100"/>`).join('');
-  document.getElementById('modalFotos').innerHTML = fotos;
+ const imagemPrincipal = document.getElementById('imagemPrincipal');
+imagemPrincipal.src = produtoAtual.fotos[0];
+
+const miniaturas = produtoAtual.fotos.map(f => 
+  `<img src="${f}" width="70" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border" />`
+).join('');
+
+document.getElementById('modalMiniaturas').innerHTML = miniaturas;
+
 
   const tamanhoSel = document.getElementById('modalTamanho');
   tamanhoSel.innerHTML = produtoAtual.tamanhos.map(t => `<option>${t}</option>`).join('');
