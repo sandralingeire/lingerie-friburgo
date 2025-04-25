@@ -1,4 +1,4 @@
-const baseUrl = "imagens/";
+fconst baseUrl = "imagens/";
 
 const produtos = [
   {
@@ -184,11 +184,6 @@ renderProdutos();
 async function finalizarPedido() {
   const nome = document.getElementById('inputNome').value.trim();
   const turma = document.getElementById('inputTurma').value;
-  const celular = document.getElementById('inputCelular').value.replace(/\D/g, ''); // remove tudo que não é número
-
-  if (!nome || !celular || celular.length !== 11 || carrinho.length === 0) {
-    alert('Preencha seu nome, WhatsApp corretamente e adicione pelo menos um item ao carrinho.');
-    return;
   }
 
   const token = 'patGh0r600dk7q9Mj.a0fc7ae0aa1c9cfa092266678c4b786b8dbda02b88167ac75b859802dea40bae';
