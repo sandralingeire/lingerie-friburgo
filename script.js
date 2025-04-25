@@ -156,35 +156,35 @@ function abrirModal(index) {
 
   const modalContent = document.getElementById('modalContent');
   modalContent.innerHTML = `
-    <div class="flex flex-col md:flex-row gap-6 w-full max-w-4xl mx-auto">
+    <div class="flex flex-col md:flex-row gap-6 w-full max-w-4xl mx-auto font-sans">
       <div class="md:w-1/2 w-full">
         <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-96 object-contain rounded border mx-auto" />
         <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
           ${produtoAtual.fotos.map(f => `<img src="${f}" width="60" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
         </div>
       </div>
-      <div class="md:w-1/2 w-full">
-        <h2 id="modalNome" class="text-xl font-semibold mb-2 text-center md:text-left">${produtoAtual.nome}</h2>
-        <p id="modalPreco" class="text-pink-600 font-bold mb-2 text-center md:text-left">R$ ${produtoAtual.preco.toFixed(2)}</p>
-        <div class="mb-2">
+      <div class="md:w-1/2 w-full text-gray-800">
+        <h2 id="modalNome" class="text-2xl font-semibold mb-2 text-center md:text-left leading-snug">${produtoAtual.nome}</h2>
+        <p id="modalPreco" class="text-2xl text-pink-600 font-bold mb-4 text-center md:text-left">R$ ${produtoAtual.preco.toFixed(2)}</p>
+        <div class="mb-3">
           <label class="block text-sm font-medium">Tamanho</label>
-          <select id="modalTamanho" class="w-full border rounded px-2 py-1">
+          <select id="modalTamanho" class="w-full border rounded px-3 py-2">
             ${produtoAtual.tamanhos.map(t => `<option>${t}</option>`).join('')}
           </select>
         </div>
-        <div class="mb-2">
+        <div class="mb-3">
           <label class="block text-sm font-medium">Cor</label>
-          <select id="modalCor" class="w-full border rounded px-2 py-1">
+          <select id="modalCor" class="w-full border rounded px-3 py-2">
             ${produtoAtual.cores.map(c => `<option>${c}</option>`).join('')}
           </select>
         </div>
-        <div class="mb-4">
+        <div class="mb-5">
           <label class="block text-sm font-medium">Quantidade</label>
-          <input type="number" id="modalQtd" min="1" value="1" class="w-full border rounded px-2 py-1" />
+          <input type="number" id="modalQtd" min="1" value="1" class="w-full border rounded px-3 py-2" />
         </div>
-        <div class="flex flex-col sm:flex-row justify-between gap-2">
-          <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-4 py-2 rounded">Adicionar</button>
-          <button onclick="fecharModal()" class="text-gray-600 border border-gray-400 px-4 py-2 rounded">Fechar</button>
+        <div class="flex flex-col sm:flex-row justify-between gap-3">
+          <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-6 py-2 rounded shadow hover:bg-pink-700">Adicionar</button>
+          <button onclick="fecharModal()" class="text-gray-600 border border-gray-400 px-6 py-2 rounded hover:bg-gray-100">Fechar</button>
         </div>
       </div>
     </div>
