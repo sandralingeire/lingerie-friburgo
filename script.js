@@ -1,5 +1,21 @@
 const baseUrl = "imagens/";
 
+// Carrega uma fonte elegante
+const link = document.createElement('link');
+link.href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap";
+link.rel = "stylesheet";
+document.head.appendChild(link);
+
+document.body.classList.add("bg-rose-50", "text-gray-800", "font-[Poppins]");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const titulo = document.querySelector("h1");
+  if (titulo) {
+    titulo.classList.add("text-4xl", "font-bold", "text-pink-600", "mb-8");
+  }
+});
+
+
 const produtos = [
   {
     nome: 'Calcinha 1',
