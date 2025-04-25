@@ -184,6 +184,10 @@ renderProdutos();
 async function finalizarPedido() {
   const nome = document.getElementById('inputNome').value.trim();
   const turma = document.getElementById('inputTurma').value;
+
+  if (!nome || carrinho.length === 0) {
+    alert('Preencha seu nome e adicione pelo menos um item ao carrinho.');
+    return;
   }
 
   const token = 'patGh0r600dk7q9Mj.a0fc7ae0aa1c9cfa092266678c4b786b8dbda02b88167ac75b859802dea40bae';
@@ -201,7 +205,7 @@ async function finalizarPedido() {
             "Tamanho": item.tamanho,
             "Cor": item.cor,
             "Preço": item.preco,
-            "Quantidade": item.quantidade,
+            "Quantidade": item.quantidade
           }
         }
       ]
@@ -222,5 +226,4 @@ async function finalizarPedido() {
   renderCarrinho();
   document.getElementById('inputNome').value = '';
   document.getElementById('inputTurma').selectedIndex = 0;
-  document.getElementById('inputCelular').value = '';
 }
