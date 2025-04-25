@@ -78,7 +78,7 @@ function renderProdutos() {
 div.innerHTML = `
   <img src="${p.fotos[0]}" alt="${p.nome}" width="150" class="mx-auto mb-3 rounded" />
   <h3 class="font-semibold text-base text-gray-900 mb-1">${p.nome}</h3>
-  <p class="text-pink-700 font-medium mb-1">R$ ${p.preco.toFixed(2)}</p>
+  <p class="text-pink-700 font-bold mb-1">R$ ${p.preco.toFixed(2)}</p>
   <button onclick="abrirModal(${i})" class="text-sm text-blue-600 hover:underline">Ver Detalhes</button>
 `;
     container.appendChild(div);
