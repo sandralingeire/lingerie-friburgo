@@ -184,9 +184,10 @@ renderProdutos();
 async function finalizarPedido() {
   const nome = document.getElementById('inputNome').value.trim();
   const turma = document.getElementById('inputTurma').value;
+  const celular = document.getElementById('inputCelular').value.replace(/\D/g, ''); // remove tudo que não é número
 
-  if (!nome || carrinho.length === 0) {
-    alert('Preencha seu nome e adicione pelo menos um item ao carrinho.');
+  if (!nome || !celular || celular.length !== 11 || carrinho.length === 0) {
+    alert('Preencha seu nome, WhatsApp corretamente e adicione pelo menos um item ao carrinho.');
     return;
   }
 
@@ -205,7 +206,8 @@ async function finalizarPedido() {
             "Tamanho": item.tamanho,
             "Cor": item.cor,
             "Preço": item.preco,
-            "Quantidade": item.quantidade
+            "Quantidade": item.quantidade,
+            "WhatsApp": celular
           }
         }
       ]
@@ -226,9 +228,5 @@ async function finalizarPedido() {
   renderCarrinho();
   document.getElementById('inputNome').value = '';
   document.getElementById('inputTurma').selectedIndex = 0;
-}
-
-function removerItemCarrinho(index) {
-  carrinho.splice(index, 1);
-  renderCarrinho();
+  document.getElementById('inputCelular').value = '';
 }
