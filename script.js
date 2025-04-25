@@ -74,13 +74,13 @@ function renderProdutos() {
   const container = document.getElementById('produtos');
   produtos.forEach((p, i) => {
     const div = document.createElement('div');
-    div.className = 'produto-card shadow rounded-lg p-4 bg-rose-100';
-    div.innerHTML = `
-      <img src="${p.fotos[0]}" alt="${p.nome}" width="160"/>
-      <strong>${p.nome}</strong><br/>
-      R$ ${p.preco.toFixed(2)}<br/>
-      <button onclick="abrirModal(${i})">Ver Detalhes</button>
-    `;
+    div.className = 'produto-card shadow rounded-lg p-4 bg-rose-100 text-center';
+div.innerHTML = `
+  <img src="${p.fotos[0]}" alt="${p.nome}" class="w-full h-48 object-cover rounded mb-3" />
+  <h3 class="font-semibold text-base text-gray-900 mb-1">${p.nome}</h3>
+  <p class="text-pink-700 font-medium mb-1">R$ ${p.preco.toFixed(2)}</p>
+  <button onclick="abrirModal(${i})" class="text-sm text-blue-600 hover:underline">Ver Detalhes</button>
+`;
     container.appendChild(div);
   });
 }
