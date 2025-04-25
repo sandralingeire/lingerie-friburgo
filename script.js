@@ -1,4 +1,4 @@
-fconst baseUrl = "imagens/";
+const baseUrl = "imagens/";
 
 const produtos = [
   {
