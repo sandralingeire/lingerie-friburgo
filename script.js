@@ -76,7 +76,7 @@ function renderProdutos() {
     const div = document.createElement('div');
     div.className = 'produto-card shadow rounded-lg p-4 bg-rose-100';
     div.innerHTML = `
-      <img src="${p.fotos[0]}" alt="${p.nome}" class="w-full h-48 object-cover rounded" />
+      <img src="${p.fotos[0]}" alt="${p.nome}" width="180"/>
       <strong>${p.nome}</strong><br/>
       R$ ${p.preco.toFixed(2)}<br/>
       <button onclick="abrirModal(${i})">Ver Detalhes</button>
