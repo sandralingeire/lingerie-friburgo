@@ -30,3 +30,14 @@
   border-top: 2px solid black;
   padding-top: 10px;
 }
+
+/* Deixa o cursor como "zoom" nas miniaturas */
+#modalMiniaturas img {
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.2s ease;
+}
+
+#modalMiniaturas img:hover {
+  border-color: #ec4899; /* rosa do Tailwind */
+}
