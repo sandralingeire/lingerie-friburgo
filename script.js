@@ -74,7 +74,7 @@ function renderProdutos() {
   const container = document.getElementById('produtos');
   produtos.forEach((p, i) => {
     const div = document.createElement('div');
-    div.className = 'produto-card shadow rounded-lg p-4 bg-rose-100 text-center';
+    div.className = 'produto-card shadow rounded-lg p-4 bg-rose-200 text-center';
 div.innerHTML = `
   <img src="${p.fotos[0]}" alt="${p.nome}" width="150" class="mx-auto mb-3 rounded" />
   <h3 class="font-semibold text-base text-gray-900 mb-1">${p.nome}</h3>
