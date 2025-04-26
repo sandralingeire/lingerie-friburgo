@@ -255,52 +255,76 @@ div.innerHTML = `
 function abrirModal(index) {
   produtoAtual = produtos[index];
 
+  const tamanhosDisponiveis = Object.keys(produtoAtual.estoque);
+
+  const gerarOpcoesCor = (tamanhoSelecionado) => {
+    const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
+    return Object.keys(coresDisponiveis)
+      .filter(cor => coresDisponiveis[cor])
+      .map(cor => `<option value="${cor}">${cor}</option>`)
+      .join('');
+  };
+
+function atualizarCoresDisponiveis() {
+  const tamanhoSelecionado = document.getElementById('modalTamanho').value;
+  const selectCor = document.getElementById('modalCor');
+
+  const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
+
+  selectCor.innerHTML = Object.keys(coresDisponiveis)
+    .filter(cor => coresDisponiveis[cor])
+    .map(cor => `<option value="${cor}">${cor}</option>`)
+    .join('');
+}
+
+  
   const modalContent = document.getElementById('modalContent');
-modalContent.innerHTML = `
-  <div class="flex flex-col gap-6 md:flex-row w-full max-w-4xl mx-auto font-sans">
-    <!-- Imagem principal e miniaturas -->
-    <div class="md:w-1/2 w-full">
-      <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-[300px] md:max-h-[500px] object-contain rounded border mx-auto" />
-      <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
-        ${produtoAtual.fotos.map(f => `<img src="${f}" width="50" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
+  modalContent.innerHTML = `
+    <div class="flex flex-col gap-6 md:flex-row w-full max-w-4xl mx-auto font-sans">
+      <!-- Imagem principal e miniaturas -->
+      <div class="md:w-1/2 w-full">
+        <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-[300px] md:max-h-[500px] object-contain rounded border mx-auto" />
+        <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
+          ${produtoAtual.fotos.map(f => `<img src="${f}" width="50" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
+        </div>
+      </div>
+
+      <!-- Informações e ações -->
+      <div class="md:w-1/2 w-full text-sm">
+        <h2 id="modalNome" class="text-lg font-semibold mb-1 text-center md:text-left">${produtoAtual.nome}</h2>
+        <p class="text-pink-700 font-bold text-center md:text-left mb-3 text-xl">R$ ${produtoAtual.preco.toFixed(2)}</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+          <div>
+            <label class="text-xs font-medium">Tamanho</label>
+            <select id="modalTamanho" class="w-full border rounded px-2 py-1 text-sm" onchange="atualizarCoresDisponiveis()">
+              ${tamanhosDisponiveis.map(t => `<option value="${t}">${t}</option>`).join('')}
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-medium">Cor</label>
+            <select id="modalCor" class="w-full border rounded px-2 py-1 text-sm">
+              <!-- Cores serão carregadas -->
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="text-xs font-medium">Quantidade</label>
+            <input type="number" id="modalQtd" min="1" value="1" class="w-full border rounded px-2 py-1 text-sm" />
+          </div>
+        </div>
+
+        <div class="flex justify-between gap-2">
+          <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-4 py-2 rounded text-sm w-1/2">Adicionar</button>
+          <button onclick="fecharModal()" class="border border-gray-400 text-gray-600 px-4 py-2 rounded text-sm w-1/2">Fechar</button>
+        </div>
       </div>
     </div>
-
-    <!-- Informações e ações -->
-    <div class="md:w-1/2 w-full text-sm">
-      <h2 id="modalNome" class="text-lg font-semibold mb-1 text-center md:text-left">${produtoAtual.nome}</h2>
-      <p class="text-pink-600 font-bold text-center md:text-left mb-3 text-xl">R$ ${produtoAtual.preco.toFixed(2)}</p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-        <div>
-          <label class="text-xs font-medium">Tamanho</label>
-          <select id="modalTamanho" class="w-full border rounded px-2 py-1 text-sm">
-            ${produtoAtual.tamanhos.map(t => `<option>${t}</option>`).join('')}
-          </select>
-        </div>
-        <div>
-          <label class="text-xs font-medium">Cor</label>
-          <select id="modalCor" class="w-full border rounded px-2 py-1 text-sm">
-            ${produtoAtual.cores.map(c => `<option>${c}</option>`).join('')}
-          </select>
-        </div>
-        <div class="sm:col-span-2">
-          <label class="text-xs font-medium">Quantidade</label>
-          <input type="number" id="modalQtd" min="1" value="1" class="w-full border rounded px-2 py-1 text-sm" />
-        </div>
-      </div>
-
-      <div class="flex justify-between gap-2">
-        <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-4 py-2 rounded text-sm w-1/2">Adicionar</button>
-        <button onclick="fecharModal()" class="border border-gray-400 text-gray-600 px-4 py-2 rounded text-sm w-1/2">Fechar</button>
-      </div>
-    </div>
-  </div>
-`;
-
+  `;
 
   document.getElementById('modal').style.display = 'flex';
+  atualizarCoresDisponiveis();
 }
+
 
 function fecharModal() {
   document.getElementById('modal').style.display = 'none';
