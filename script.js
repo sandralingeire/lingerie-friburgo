@@ -2,235 +2,234 @@ const baseUrl = "imagens/";
 
 const produtos = [
   {
-  nome: 'Calcinha 1',
-  preco: 7.00,
-  fotos: [`${baseUrl}calcinha 1.1.webp`, `${baseUrl}calcinha 1.2.webp`, `${baseUrl}calcinha 1.3.webp`],
-  estoque: {
-    'Único': {
-      'Preto': true,
-      'Vermelho': true,
-      'Banco': false,
-      'Vinho': false,
-      'Rosa': false
+    nome: 'Calcinha 1',
+    preco: 7.00,
+    fotos: [`${baseUrl}calcinha 1.1.webp`, `${baseUrl}calcinha 1.2.webp`, `${baseUrl}calcinha 1.3.webp`],
+    estoque: {
+      'Único': {
+        'Preto': true,
+        'Vermelho': true,
+        'Banco': false,
+        'Vinho': false,
+        'Rosa': false
+      }
+    }
+  },
+  {
+    nome: 'Calcinha 2',
+    preco: 5.00,
+    fotos: [`${baseUrl}calcinha 2.1.webp`, `${baseUrl}calcinha 2.2.webp`, `${baseUrl}calcinha 2.3.webp`, `${baseUrl}calcinha 2.4.webp`, `${baseUrl}calcinha 2.5.webp`, `${baseUrl}calcinha 2.6.webp`, `${baseUrl}calcinha 2.7.webp`, `${baseUrl}calcinha 2.8.webp`],
+    estoque: {
+      'Único': {
+        'Rosa': false,
+        'Preto': false,
+        'Branco': false,
+        'Verde': true,
+        'Vinho': false,
+        'Azul': true,
+        'Vermelho': false
+      }
+    }
+  },
+  {
+    nome: 'Camisola',
+    preco: 25.00,
+    fotos: [`${baseUrl}camisola 1.webp`, `${baseUrl}camisola 2.webp`, `${baseUrl}camisola 3.webp`, `${baseUrl}camisola 4.webp`, `${baseUrl}camisola 5.webp`, `${baseUrl}camisola 6.webp`],
+    estoque: {
+      'P': {
+        'Romance': true,
+        'Branco com preto': false,
+        'Vermelho': false,
+        'Preto': false,
+        'Azul': true,
+        'Caramelo': true
+      },
+      'M': {
+        'Romance': true,
+        'Branco com preto': false,
+        'Vermelho': false,
+        'Preto': false,
+        'Azul': true,
+        'Caramelo': true
+      },
+      'G': {
+        'Romance': true,
+        'Branco com preto': false,
+        'Vermelho': false,
+        'Preto': false,
+        'Azul': true,
+        'Caramelo': true
+      }
+    }
+  },
+  {
+    nome: 'Conjunto 1',
+    preco: 22.00,
+    fotos: [`${baseUrl}conjunto 1.1.webp`, `${baseUrl}conjunto 1.2.webp`, `${baseUrl}conjunto 1.3.webp`, `${baseUrl}conjunto 1.4.webp`],
+    estoque: {
+      'P': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': false,
+        'Rosa': false,
+        'Roxo': true
+      },
+      'M': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': false,
+        'Rosa': false,
+        'Roxo': false
+      },
+      'G': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': false,
+        'Rosa': false,
+        'Roxo': true
+      }
+    }
+  },
+  {
+    nome: 'Conjunto 2',
+    preco: 18.00,
+    fotos: [`${baseUrl}conjunto 2.1.webp`, `${baseUrl}conjunto 2.2.webp`, `${baseUrl}conjunto 2.3.webp`, `${baseUrl}conjunto 2.4.webp`, `${baseUrl}conjunto 2.5.webp`, `${baseUrl}conjunto 2.6.webp`, `${baseUrl}conjunto 2.7.webp`],
+    estoque: {
+      'P': {
+        'Preto': true,
+        'Vermelho': true,
+        'Roxo': false,
+        'Banco': true,
+        'Azul': true
+      },
+      'M': {
+        'Preto': true,
+        'Vermelho': true,
+        'Roxo': false,
+        'Banco': true,
+        'Azul': true
+      },
+      'G': {
+        'Preto': true,
+        'Vermelho': true,
+        'Roxo': true,
+        'Banco': true,
+        'Azul': true
+      }
+    }
+  },
+  {
+    nome: 'Conjunto 3',
+    preco: 18.00,
+    fotos: [`${baseUrl}conjunto 3.1.webp`, `${baseUrl}conjunto 3.2.webp`, `${baseUrl}conjunto 3.3.webp`, `${baseUrl}conjunto 3.4.webp`],
+    estoque: {
+      'P': {
+        'Rosa': true,
+        'Verde': true,
+        'Azul': true,
+        'Vinho': true,
+        'Preto': true
+      },
+      'M': {
+        'Rosa': true,
+        'Verde': true,
+        'Azul': true,
+        'Vinho': true,
+        'Preto': true
+      },
+      'G': {
+        'Rosa': false,
+        'Verde': false,
+        'Azul': false,
+        'Vinho': false,
+        'Preto': false
+      }
+    }
+  },
+  {
+    nome: 'Conjunto 4',
+    preco: 30.00,
+    fotos: [`${baseUrl}conjunto 4.1.webp`, `${baseUrl}conjunto 4.2.webp`, `${baseUrl}conjunto 4.3.webp`, `${baseUrl}conjunto 4.4.webp`],
+    estoque: {
+      'P': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': false,
+        'Rosa': false,
+        'Roxo': true
+      },
+      'M': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': false,
+        'Rosa': false,
+        'Roxo': false
+      },
+      'G': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': false,
+        'Rosa': false,
+        'Roxo': true
+      }
+    }
+  },
+  {
+    nome: 'Conjunto 5',
+    preco: 20.00,
+    fotos: [`${baseUrl}conjunto 5.1.webp`, `${baseUrl}conjunto 5.2.webp`, `${baseUrl}conjunto 5.3.webp`, `${baseUrl}conjunto 5.4.webp`, `${baseUrl}conjunto 5.5.webp`],
+    estoque: {
+      'P': {
+        'Rosa': true,
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': true,
+        'Roxo': true
+      },
+      'M': {
+        'Rosa': true,
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': true,
+        'Roxo': true
+      },
+      'G': {
+        'Rosa': true,
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': true,
+        'Roxo': true
+      }
+    }
+  },
+  {
+    nome: 'Conjunto de 3 Peças',
+    preco: 28.00,
+    fotos: [`${baseUrl}conjunto de 3 peças 1.webp`, `${baseUrl}conjunto de 3 peças 2.webp`, `${baseUrl}conjunto de 3 peças 3.webp`, `${baseUrl}conjunto de 3 peças 4.webp`, `${baseUrl}conjunto de 3 peças 5.webp`, `${baseUrl}conjunto de 3 peças 6.webp`, `${baseUrl}conjunto de 3 peças 7.webp`],
+    estoque: {
+      'M': {
+        'Vermelho': true,
+        'Preto': true,
+        'Roxo': true,
+        'Azul': true,
+        'Rosa': true
+      },
+      'G': {
+        'Vermelho': true,
+        'Preto': true,
+        'Roxo': true,
+        'Azul': true,
+        'Rosa': true
+      },
+      'GG': {
+        'Vermelho': true,
+        'Preto': true,
+        'Roxo': true,
+        'Azul': true,
+        'Rosa': true
+      }
     }
   }
-},
-{
-  nome: 'Calcinha 2',
-  preco: 5.00,
-  fotos: [`${baseUrl}calcinha 2.1.webp`, `${baseUrl}calcinha 2.2.webp`, `${baseUrl}calcinha 2.3.webp`, `${baseUrl}calcinha 2.4.webp`, `${baseUrl}calcinha 2.5.webp`, `${baseUrl}calcinha 2.6.webp`, `${baseUrl}calcinha 2.7.webp`, `${baseUrl}calcinha 2.8.webp`],
-  estoque: {
-    'Único': {
-      'Rosa': false,
-      'Preto': false,
-      'Branco': false,
-      'Verde': true,
-      'Vinho': false,
-      'Azul': true,
-      'Vermelho': false
-    }
-  }
-},
-{
-  nome: 'Camisola',
-  preco: 25.00,
-  fotos: [`${baseUrl}camisola 1.webp`, `${baseUrl}camisola 2.webp`, `${baseUrl}camisola 3.webp`, `${baseUrl}camisola 4.webp`, `${baseUrl}camisola 5.webp`, `${baseUrl}camisola 6.webp`],
-  estoque: {
-    'P': {
-      'Romance': true,
-      'Branco com preto': false,
-      'Vermelho': false,
-      'Preto': false,
-      'Azul': true,
-      'Caramelo': true
-    },
-    'M': {
-      'Romance': true,
-      'Branco com preto': false,
-      'Vermelho': false,
-      'Preto': false,
-      'Azul': true,
-      'Caramelo': true
-    },
-    'G': {
-      'Romance': true,
-      'Branco com preto': false,
-      'Vermelho': false,
-      'Preto': false,
-      'Azul': true,
-      'Caramelo': true
-    }
-  }
-},
-{
-  nome: 'Conjunto 1',
-  preco: 22.00,
-  fotos: [`${baseUrl}conjunto 1.1.webp`, `${baseUrl}conjunto 1.2.webp`, `${baseUrl}conjunto 1.3.webp`, `${baseUrl}conjunto 1.4.webp`],
-  estoque: {
-    'P': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': false,
-      'Rosa': false,
-      'Roxo': true
-    },
-    'M': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': false,
-      'Rosa': false,
-      'Roxo': false
-    },
-    'G': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': false,
-      'Rosa': false,
-      'Roxo': true
-    }
-  }
-},
-{
-  nome: 'Conjunto 2',
-  preco: 18.00,
-  fotos: [`${baseUrl}conjunto 2.1.webp`, `${baseUrl}conjunto 2.2.webp`, `${baseUrl}conjunto 2.3.webp`, `${baseUrl}conjunto 2.4.webp`, `${baseUrl}conjunto 2.5.webp`, `${baseUrl}conjunto 2.6.webp`, `${baseUrl}conjunto 2.7.webp`],
-  estoque: {
-    'P': {
-      'Preto': true,
-      'Vermelho': true,
-      'Roxo': false,
-      'Banco': true,
-      'Azul': true
-    },
-    'M': {
-      'Preto': true,
-      'Vermelho': true,
-      'Roxo': false,
-      'Banco': true,
-      'Azul': true
-    },
-    'G': {
-      'Preto': true,
-      'Vermelho': true,
-      'Roxo': true,
-      'Banco': true,
-      'Azul': true
-    }
-  }
-},
-{
-  nome: 'Conjunto 3',
-  preco: 18.00,
-  fotos: [`${baseUrl}conjunto 3.1.webp`, `${baseUrl}conjunto 3.2.webp`, `${baseUrl}conjunto 3.3.webp`, `${baseUrl}conjunto 3.4.webp`],
-  estoque: {
-    'P': {
-      'Rosa': true,
-      'Verde': true,
-      'Azul': true,
-      'Vinho': true,
-      'Preto': true
-    },
-    'M': {
-      'Rosa': true,
-      'Verde': true,
-      'Azul': true,
-      'Vinho': true,
-      'Preto': true
-    },
-    'G': {
-      'Rosa': false,
-      'Verde': false,
-      'Azul': false,
-      'Vinho': false,
-      'Preto': false
-    }
-  }
-},
-{
-  nome: 'Conjunto 4',
-  preco: 30.00,
-  fotos: [`${baseUrl}conjunto 4.1.webp`, `${baseUrl}conjunto 4.2.webp`, `${baseUrl}conjunto 4.3.webp`, `${baseUrl}conjunto 4.4.webp`],
-  estoque: {
-    'P': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': false,
-      'Rosa': false,
-      'Roxo': true
-    },
-    'M': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': false,
-      'Rosa': false,
-      'Roxo': false
-    },
-    'G': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': false,
-      'Rosa': false,
-      'Roxo': true
-    }
-  }
-},
-{
-  nome: 'Conjunto 5',
-  preco: 20.00,
-  fotos: [`${baseUrl}conjunto 5.1.webp`, `${baseUrl}conjunto 5.2.webp`, `${baseUrl}conjunto 5.3.webp`, `${baseUrl}conjunto 5.4.webp`, `${baseUrl}conjunto 5.5.webp`],
-  estoque: {
-    'P': {
-      'Rosa': true,
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': true,
-      'Roxo': true
-    },
-    'M': {
-      'Rosa': true,
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': true,
-      'Roxo': true
-    },
-    'G': {
-      'Rosa': true,
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': true,
-      'Roxo': true
-    }
-  }
-},
-{
-  nome: 'Conjunto de 3 Peças',
-  preco: 28.00,
-  fotos: [`${baseUrl}conjunto de 3 peças 1.webp`, `${baseUrl}conjunto de 3 peças 2.webp`, `${baseUrl}conjunto de 3 peças 3.webp`, `${baseUrl}conjunto de 3 peças 4.webp`, `${baseUrl}conjunto de 3 peças 5.webp`, `${baseUrl}conjunto de 3 peças 6.webp`, `${baseUrl}conjunto de 3 peças 7.webp`],
-  estoque: {
-    'M': {
-      'Vermelho': true,
-      'Preto': true,
-      'Roxo': true,
-      'Azul': true,
-      'Rosa': true
-    },
-    'G': {
-      'Vermelho': true,
-      'Preto': true,
-      'Roxo': true,
-      'Azul': true,
-      'Rosa': true
-    },
-    'GG': {
-      'Vermelho': true,
-      'Preto': true,
-      'Roxo': true,
-      'Azul': true,
-      'Rosa': true
-    }
-  }
-}
-
 ];
 
 
@@ -242,12 +241,12 @@ function renderProdutos() {
   produtos.forEach((p, i) => {
     const div = document.createElement('div');
     div.className = 'produto-card shadow rounded-lg p-4 bg-rose-200 text-center';
-div.innerHTML = `
-  <img src="${p.fotos[0]}" alt="${p.nome}" width="150" class="mx-auto mb-3 rounded" />
-  <h3 class="font-semibold text-base text-gray-900 mb-1">${p.nome}</h3>
-  <p class="text-pink-700 font-bold mb-1">R$ ${p.preco.toFixed(2)}</p>
-  <button onclick="abrirModal(${i})" class="text-sm text-blue-600 hover:underline">Ver Detalhes</button>
-`;
+    div.innerHTML = `
+      <img src="${p.fotos[0]}" alt="${p.nome}" width="150" class="mx-auto mb-3 rounded" />
+      <h3 class="font-semibold text-base text-gray-900 mb-1">${p.nome}</h3>
+      <p class="text-pink-700 font-bold mb-1">R$ ${p.preco.toFixed(2)}</p>
+      <button onclick="abrirModal(${i})" class="text-sm text-blue-600 hover:underline">Ver Detalhes</button>
+    `;
     container.appendChild(div);
   });
 }
@@ -255,13 +254,11 @@ div.innerHTML = `
 function abrirModal(index) {
   produtoAtual = produtos[index];
 
-  // Só mostra tamanhos que ainda têm pelo menos uma cor disponível
   const tamanhosDisponiveis = Object.keys(produtoAtual.estoque).filter(tamanho => {
     const coresDisponiveis = produtoAtual.estoque[tamanho];
-    return Object.values(coresDisponiveis).some(disponivel => disponivel);
+    return Object.values(coresDisponiveis).some(disp => disp);
   });
 
-  // Função para gerar as opções de cores com base no tamanho selecionado
   const gerarOpcoesCor = (tamanhoSelecionado) => {
     const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
     return Object.keys(coresDisponiveis)
@@ -270,24 +267,28 @@ function abrirModal(index) {
       .join('');
   };
 
-  // Atualiza as opções de cor sempre que o tamanho mudar
   function atualizarCoresDisponiveis() {
     const tamanhoSelecionado = document.getElementById('modalTamanho').value;
     const selectCor = document.getElementById('modalCor');
 
-    const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
+    if (!produtoAtual.estoque[tamanhoSelecionado]) {
+      selectCor.innerHTML = `<option value="">Sem cores disponíveis</option>`;
+      return;
+    }
 
-    selectCor.innerHTML = Object.keys(coresDisponiveis)
-      .filter(cor => coresDisponiveis[cor])
-      .map(cor => `<option value="${cor}">${cor}</option>`)
-      .join('');
+    const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
+    const coresFiltradas = Object.keys(coresDisponiveis).filter(cor => coresDisponiveis[cor]);
+
+    if (coresFiltradas.length > 0) {
+      selectCor.innerHTML = coresFiltradas.map(cor => `<option value="${cor}">${cor}</option>`).join('');
+    } else {
+      selectCor.innerHTML = `<option value="">Sem cores disponíveis</option>`;
+    }
   }
 
-  // Preenche o conteúdo do modal
   const modalContent = document.getElementById('modalContent');
   modalContent.innerHTML = `
     <div class="flex flex-col gap-6 md:flex-row w-full max-w-4xl mx-auto font-sans">
-      <!-- Imagem principal e miniaturas -->
       <div class="md:w-1/2 w-full">
         <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-[300px] md:max-h-[500px] object-contain rounded border mx-auto" />
         <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
@@ -295,7 +296,6 @@ function abrirModal(index) {
         </div>
       </div>
 
-      <!-- Informações e ações -->
       <div class="md:w-1/2 w-full text-sm">
         <h2 id="modalNome" class="text-lg font-semibold mb-1 text-center md:text-left">${produtoAtual.nome}</h2>
         <p class="text-pink-700 font-bold text-center md:text-left mb-3 text-xl">R$ ${produtoAtual.preco.toFixed(2)}</p>
@@ -309,29 +309,7 @@ function abrirModal(index) {
           </div>
           <div>
             <label class="text-xs font-medium">Cor</label>
-            function atualizarCoresDisponiveis() {
-  const tamanhoSelecionado = document.getElementById('modalTamanho').value;
-  const selectCor = document.getElementById('modalCor');
-
-  if (!produtoAtual.estoque[tamanhoSelecionado]) {
-    selectCor.innerHTML = `<option value="">Sem cores disponíveis</option>`;
-    return;
-  }
-
-  const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
-
-  const coresFiltradas = Object.keys(coresDisponiveis)
-    .filter(cor => coresDisponiveis[cor]); // só pega as cores true
-
-  if (coresFiltradas.length > 0) {
-    selectCor.innerHTML = coresFiltradas
-      .map(cor => `<option value="${cor}">${cor}</option>`)
-      .join('');
-  } else {
-    selectCor.innerHTML = `<option value="">Sem cores disponíveis</option>`;
-  }
-}
-
+            <select id="modalCor" class="w-full border rounded px-2 py-1 text-sm"></select>
           </div>
           <div class="sm:col-span-2">
             <label class="text-xs font-medium">Quantidade</label>
@@ -347,14 +325,9 @@ function abrirModal(index) {
     </div>
   `;
 
-  // Exibe o modal
   document.getElementById('modal').style.display = 'flex';
-
-  // Atualiza as opções de cores iniciais
   atualizarCoresDisponiveis();
 }
-
-
 
 function fecharModal() {
   document.getElementById('modal').style.display = 'none';
@@ -364,6 +337,11 @@ function adicionarAoCarrinho() {
   const tamanho = document.getElementById('modalTamanho').value;
   const cor = document.getElementById('modalCor').value;
   const qtd = parseInt(document.getElementById('modalQtd').value);
+
+  if (!cor || cor === "") {
+    alert("Selecione uma cor válida.");
+    return;
+  }
 
   carrinho.push({
     nome: produtoAtual.nome,
@@ -404,7 +382,6 @@ function removerItemCarrinho(index) {
   carrinho.splice(index, 1);
   renderCarrinho();
 }
-
 
 renderProdutos();
 
