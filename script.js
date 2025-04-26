@@ -255,8 +255,13 @@ div.innerHTML = `
 function abrirModal(index) {
   produtoAtual = produtos[index];
 
-  const tamanhosDisponiveis = Object.keys(produtoAtual.estoque);
+  // Só mostra tamanhos que ainda têm pelo menos uma cor disponível
+  const tamanhosDisponiveis = Object.keys(produtoAtual.estoque).filter(tamanho => {
+    const coresDisponiveis = produtoAtual.estoque[tamanho];
+    return Object.values(coresDisponiveis).some(disponivel => disponivel);
+  });
 
+  // Função para gerar as opções de cores com base no tamanho selecionado
   const gerarOpcoesCor = (tamanhoSelecionado) => {
     const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
     return Object.keys(coresDisponiveis)
@@ -265,19 +270,20 @@ function abrirModal(index) {
       .join('');
   };
 
-function atualizarCoresDisponiveis() {
-  const tamanhoSelecionado = document.getElementById('modalTamanho').value;
-  const selectCor = document.getElementById('modalCor');
+  // Atualiza as opções de cor sempre que o tamanho mudar
+  function atualizarCoresDisponiveis() {
+    const tamanhoSelecionado = document.getElementById('modalTamanho').value;
+    const selectCor = document.getElementById('modalCor');
 
-  const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
+    const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
 
-  selectCor.innerHTML = Object.keys(coresDisponiveis)
-    .filter(cor => coresDisponiveis[cor])
-    .map(cor => `<option value="${cor}">${cor}</option>`)
-    .join('');
-}
+    selectCor.innerHTML = Object.keys(coresDisponiveis)
+      .filter(cor => coresDisponiveis[cor])
+      .map(cor => `<option value="${cor}">${cor}</option>`)
+      .join('');
+  }
 
-  
+  // Preenche o conteúdo do modal
   const modalContent = document.getElementById('modalContent');
   modalContent.innerHTML = `
     <div class="flex flex-col gap-6 md:flex-row w-full max-w-4xl mx-auto font-sans">
@@ -321,9 +327,13 @@ function atualizarCoresDisponiveis() {
     </div>
   `;
 
+  // Exibe o modal
   document.getElementById('modal').style.display = 'flex';
+
+  // Atualiza as opções de cores iniciais
   atualizarCoresDisponiveis();
 }
+
 
 
 function fecharModal() {
