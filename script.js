@@ -9,9 +9,9 @@ const produtos = [
     'Único': {
       'Preto': true,
       'Vermelho': true,
-      'Banco': true,
-      'Vinho': true,
-      'Rosa': true
+      'Banco': false,
+      'Vinho': false,
+      'Rosa': false
     }
   }
 },
@@ -21,13 +21,13 @@ const produtos = [
   fotos: [`${baseUrl}calcinha 2.1.webp`, `${baseUrl}calcinha 2.2.webp`, `${baseUrl}calcinha 2.3.webp`, `${baseUrl}calcinha 2.4.webp`, `${baseUrl}calcinha 2.5.webp`, `${baseUrl}calcinha 2.6.webp`, `${baseUrl}calcinha 2.7.webp`, `${baseUrl}calcinha 2.8.webp`],
   estoque: {
     'Único': {
-      'Rosa': true,
-      'Preto': true,
-      'Branco': true,
+      'Rosa': false,
+      'Preto': false,
+      'Branco': false,
       'Verde': true,
-      'Vinho': true,
+      'Vinho': false,
       'Azul': true,
-      'Vermelho': true
+      'Vermelho': false
     }
   }
 },
@@ -38,25 +38,25 @@ const produtos = [
   estoque: {
     'P': {
       'Romance': true,
-      'Branco com preto': true,
-      'Vermelho': true,
-      'Preto': true,
+      'Branco com preto': false,
+      'Vermelho': false,
+      'Preto': false,
       'Azul': true,
       'Caramelo': true
     },
     'M': {
       'Romance': true,
-      'Branco com preto': true,
-      'Vermelho': true,
-      'Preto': true,
+      'Branco com preto': false,
+      'Vermelho': false,
+      'Preto': false,
       'Azul': true,
       'Caramelo': true
     },
     'G': {
       'Romance': true,
-      'Branco com preto': true,
-      'Vermelho': true,
-      'Preto': true,
+      'Branco com preto': false,
+      'Vermelho': false,
+      'Preto': false,
       'Azul': true,
       'Caramelo': true
     }
@@ -70,22 +70,22 @@ const produtos = [
     'P': {
       'Preto': true,
       'Vermelho': true,
-      'Branco': true,
-      'Rosa': true,
+      'Branco': false,
+      'Rosa': false,
       'Roxo': true
     },
     'M': {
       'Preto': true,
       'Vermelho': true,
-      'Branco': true,
-      'Rosa': true,
-      'Roxo': true
+      'Branco': false,
+      'Rosa': false,
+      'Roxo': false
     },
     'G': {
       'Preto': true,
       'Vermelho': true,
-      'Branco': true,
-      'Rosa': true,
+      'Branco': false,
+      'Rosa': false,
       'Roxo': true
     }
   }
@@ -98,14 +98,14 @@ const produtos = [
     'P': {
       'Preto': true,
       'Vermelho': true,
-      'Roxo': true,
+      'Roxo': false,
       'Banco': true,
       'Azul': true
     },
     'M': {
       'Preto': true,
       'Vermelho': true,
-      'Roxo': true,
+      'Roxo': false,
       'Banco': true,
       'Azul': true
     },
@@ -138,11 +138,11 @@ const produtos = [
       'Preto': true
     },
     'G': {
-      'Rosa': true,
-      'Verde': true,
-      'Azul': true,
-      'Vinho': true,
-      'Preto': true
+      'Rosa': false,
+      'Verde': false,
+      'Azul': false,
+      'Vinho': false,
+      'Preto': false
     }
   }
 },
@@ -154,22 +154,22 @@ const produtos = [
     'P': {
       'Preto': true,
       'Vermelho': true,
-      'Branco': true,
-      'Rosa': true,
+      'Branco': false,
+      'Rosa': false,
       'Roxo': true
     },
     'M': {
       'Preto': true,
       'Vermelho': true,
-      'Branco': true,
-      'Rosa': true,
-      'Roxo': true
+      'Branco': false,
+      'Rosa': false,
+      'Roxo': false
     },
     'G': {
       'Preto': true,
       'Vermelho': true,
-      'Branco': true,
-      'Rosa': true,
+      'Branco': false,
+      'Rosa': false,
       'Roxo': true
     }
   }
