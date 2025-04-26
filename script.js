@@ -309,9 +309,29 @@ function abrirModal(index) {
           </div>
           <div>
             <label class="text-xs font-medium">Cor</label>
-            <select id="modalCor" class="w-full border rounded px-2 py-1 text-sm">
-              <!-- Cores serão carregadas -->
-            </select>
+            function atualizarCoresDisponiveis() {
+  const tamanhoSelecionado = document.getElementById('modalTamanho').value;
+  const selectCor = document.getElementById('modalCor');
+
+  if (!produtoAtual.estoque[tamanhoSelecionado]) {
+    selectCor.innerHTML = `<option value="">Sem cores disponíveis</option>`;
+    return;
+  }
+
+  const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
+
+  const coresFiltradas = Object.keys(coresDisponiveis)
+    .filter(cor => coresDisponiveis[cor]); // só pega as cores true
+
+  if (coresFiltradas.length > 0) {
+    selectCor.innerHTML = coresFiltradas
+      .map(cor => `<option value="${cor}">${cor}</option>`)
+      .join('');
+  } else {
+    selectCor.innerHTML = `<option value="">Sem cores disponíveis</option>`;
+  }
+}
+
           </div>
           <div class="sm:col-span-2">
             <label class="text-xs font-medium">Quantidade</label>
