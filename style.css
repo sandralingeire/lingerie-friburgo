@@ -40,4 +40,14 @@
 
 #modalMiniaturas img:hover {
   border-color: #ec4899; /* rosa do Tailwind */
+
+  .produto-card img {
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
 }
