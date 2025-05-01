@@ -231,6 +231,33 @@ const produtos = [
     }
   },
   {
+    nome: 'Conjunto 6',
+    preco: 18.00,
+    fotos: [`${baseUrl}Conjunto 6.1.webp`, `${baseUrl}Conjunto 6.2.webp`, `${baseUrl}Conjunto 6.3.webp`, `${baseUrl}Conjunto 6.4.webp`, `${baseUrl}Conjunto 6.5.webp`,`${baseUrl}Conjunto 6.6.webp`],
+    estoque: {
+      'P': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': true,
+        'Azul': true,
+        'Rosa': true
+      },
+      'M': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': true,
+        'Azul': true,
+        'Rosa': true
+      },
+      'G': {
+        'Preto': true,
+        'Vermelho': true,
+        'Branco': true,
+        'Azul': true,
+        'Rosa': true
+      }
+    }
+  {
     nome: 'Conjunto de 3 Peças',
     preco: 28.00,
     fotos: [`${baseUrl}conjunto de 3 peças 1.webp`, `${baseUrl}conjunto de 3 peças 2.webp`, `${baseUrl}conjunto de 3 peças 3.webp`, `${baseUrl}conjunto de 3 peças 4.webp`, `${baseUrl}conjunto de 3 peças 5.webp`, `${baseUrl}conjunto de 3 peças 6.webp`, `${baseUrl}conjunto de 3 peças 7.webp`],
