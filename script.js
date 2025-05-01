@@ -260,7 +260,7 @@ const produtos = [
   },{
     nome: 'Pijama Canelado',
     preco: 25.00,
-    fotos: [`${baseUrl}Pijama canelado 1.webp`, `${baseUrl}Pijama canelado 2.webp`, `${baseUrl}Pijama canelado 3.webp`, `${baseUrl}Pijama canelado 4.webp`, `${baseUrl}Pijama canelado 5.webp`],
+    fotos: [`${baseUrl}Pijama canelado 1.webp`, `${baseUrl}Pijama canelado 2.webp`, `${baseUrl}Pijama canelado 3.webp`, `${baseUrl}Pijama canelado 4.webp`],
     estoque: {
       'M': {
         'Lua - Eástico preto': true,
