@@ -9,14 +9,17 @@
   text-align: center;
 }
 
- .produto-card img {
+.produto-card img {
   width: 100%;
-  max-width: 150px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  margin: 0 auto;
+  height: auto;
+  max-height: 250px;
   display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  background-color: #fff;
 }
+
 
 .modal {
   display: none;
