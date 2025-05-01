@@ -32,6 +32,34 @@ const produtos = [
     }
   },
   {
+    nome: 'Calcinha 3',
+    preco: 7.00,
+    fotos: [`${baseUrl}Calcinha 3.1.webp`, `${baseUrl}Calcinha 3.2.webp`, `${baseUrl}Calcinha 3.3.webp`, `${baseUrl}Calcinha 3.4.webp`, `${baseUrl}Calcinha 3.5.webp`, `${baseUrl}Calcinha 3.6.webp`],
+    estoque: {
+      'P': {
+        'Roxo': true,
+        'Preto': true,
+        'Verde': true,
+        'Vermelho': true,
+        'Rosa': true
+      },
+      'M': {
+        'Roxo': true,
+        'Preto': true,
+        'Verde': true,
+        'Vermelho': true,
+        'Rosa': false
+      },
+      'G': {
+        'Roxo': true,
+        'Preto': true,
+        'Verde': true,
+        'Vermelho': true,
+        'Rosa': false
+      }
+    }
+  },
+  {
     nome: 'Camisola',
     preco: 25.00,
     fotos: [`${baseUrl}camisola 1.webp`, `${baseUrl}camisola 2.webp`, `${baseUrl}camisola 3.webp`, `${baseUrl}camisola 4.webp`, `${baseUrl}camisola 5.webp`, `${baseUrl}camisola 6.webp`],
@@ -227,6 +255,30 @@ const produtos = [
         'Roxo': true,
         'Azul': true,
         'Rosa': true
+      }
+    }
+  },{
+    nome: 'Pijama Canelado',
+    preco: 25.00,
+    fotos: [`${baseUrl}Pijama canelado 1.webp`, `${baseUrl}Pijama canelado 2.webp`, `${baseUrl}Pijama canelado 3.webp`, `${baseUrl}Pijama canelado 4.webp`, `${baseUrl}Pijama canelado 5.webp`],
+    estoque: {
+      'M': {
+        'Lua - Eástico preto': true,
+        'Cacto - Elástico verde': true,
+        'Bala - Elástico azul': true,
+        'Coração - Elástico vermelho': true
+      },
+      'G': {
+        'Lua - Eástico preto': true,
+        'Cacto - Elástico verde': true,
+        'Bala - Elástico azul': true,
+        'Coração - Elástico vermelho': true
+      },
+      'GG': {
+        'Lua - Eástico preto': true,
+        'Cacto - Elástico verde': true,
+        'Bala - Elástico azul': true,
+        'Coração - Elástico vermelho': true
       }
     }
   }
