@@ -9,7 +9,7 @@ const produtos = [
       'Único': {
         'Preto': true,
         'Vermelho': true,
-        'Banco': false,
+        'Branco': false,
         'Vinho': false,
         'Rosa': false
       }
@@ -127,21 +127,21 @@ const produtos = [
         'Preto': true,
         'Vermelho': true,
         'Roxo': false,
-        'Banco': true,
+        'Branco': true,
         'Azul': true
       },
       'M': {
         'Preto': true,
         'Vermelho': true,
         'Roxo': false,
-        'Banco': true,
+        'Branco': true,
         'Azul': true
       },
       'G': {
         'Preto': true,
         'Vermelho': true,
         'Roxo': true,
-        'Banco': true,
+        'Branco': true,
         'Azul': true
       }
     }
@@ -231,32 +231,40 @@ const produtos = [
     }
   },
   {
-    nome: 'Conjunto 6',
-    preco: 18.00,
-    fotos: [`${baseUrl}Conjunto 6.1.webp`, `${baseUrl}Conjunto 6.2.webp`, `${baseUrl}Conjunto 6.3.webp`, `${baseUrl}Conjunto 6.4.webp`, `${baseUrl}Conjunto 6.5.webp`,`${baseUrl}Conjunto 6.6.webp`],
-    estoque: {
-      'P': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': true,
-        'Azul': true,
-        'Rosa': true
-      },
-      'M': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': true,
-        'Azul': true,
-        'Rosa': true
-      },
-      'G': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': true,
-        'Azul': true,
-        'Rosa': true
-      }
+  nome: 'Conjunto 6',
+  preco: 18.00,
+  fotos: [
+    `${baseUrl}Conjunto 6.1.webp`,
+    `${baseUrl}Conjunto 6.2.webp`,
+    `${baseUrl}Conjunto 6.3.webp`,
+    `${baseUrl}Conjunto 6.4.webp`,
+    `${baseUrl}Conjunto 6.5.webp`,
+    `${baseUrl}Conjunto 6.6.webp`
+  ],
+  estoque: {
+    'P': {
+      'Preto': true,
+      'Vermelho': true,
+      'Branco': true,
+      'Azul': true,
+      'Rosa': true
+    },
+    'M': {
+      'Preto': true,
+      'Vermelho': true,
+      'Branco': true,
+      'Azul': true,
+      'Rosa': true
+    },
+    'G': {
+      'Preto': true,
+      'Vermelho': true,
+      'Branco': true,
+      'Azul': true,
+      'Rosa': true
     }
+  }
+},
   {
     nome: 'Conjunto de 3 Peças',
     preco: 28.00,
@@ -291,19 +299,19 @@ const produtos = [
     fotos: [`${baseUrl}Pijama canelado 1.jpg`, `${baseUrl}Pijama canelado 2.jpg`, `${baseUrl}Pijama canelado 3.jpg`, `${baseUrl}Pijama canelado 4.jpg`],
     estoque: {
       'M': {
-        'Lua - Eástico preto': true,
+        'Lua - Elástico preto': true,
         'Cacto - Elástico verde': true,
         'Bala - Elástico azul': true,
         'Coração - Elástico vermelho': true
       },
       'G': {
-        'Lua - Eástico preto': true,
+        'Lua - Elástico preto': true,
         'Cacto - Elástico verde': true,
         'Bala - Elástico azul': true,
         'Coração - Elástico vermelho': true
       },
       'GG': {
-        'Lua - Eástico preto': true,
+        'Lua - Elástico preto': true,
         'Cacto - Elástico verde': true,
         'Bala - Elástico azul': true,
         'Coração - Elástico vermelho': true
