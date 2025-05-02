@@ -107,7 +107,7 @@ const produtos = [
         'Vermelho': true,
         'Branco': false,
         'Rosa': false,
-        'Roxo': false
+        'Roxo': true
       },
       'G': {
         'Preto': true,
@@ -191,7 +191,7 @@ const produtos = [
         'Vermelho': true,
         'Branco': false,
         'Rosa': false,
-        'Roxo': false
+        'Roxo': true
       },
       'G': {
         'Preto': true,
