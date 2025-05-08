@@ -9,6 +9,7 @@ const produtos = [
       'Único': {
         'Preto': true,
         'Vermelho': true,
+        'Azul marinho': true,
         'Branco': false,
         'Vinho': false,
         'Rosa': false
