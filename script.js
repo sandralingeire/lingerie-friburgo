@@ -486,7 +486,6 @@ async function finalizarPedido() {
     return;
   }
 
-  // monta 1 linha por item do carrinho
   const payload = {
     records: carrinho.map(item => ({
       fields: {
@@ -534,10 +533,3 @@ async function finalizarPedido() {
   }
 }
 
-
-  alert('Pedido enviado com sucesso!');
-  carrinho.length = 0;
-  renderCarrinho();
-  document.getElementById('inputNome').value = '';
-  document.getElementById('inputTurma').selectedIndex = 0;
-}
