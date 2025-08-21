@@ -483,7 +483,7 @@ async function finalizarPedido() {
     return;
   }
 
-  const token = 'patGh0r600dk7q9Mj.fd4fd33b6deab8f61f558555edaa8bf0c1d69f725ee1f77eeda64d9f8e5539cc';
+  const token = 'pat961ZqqoraAhIJq.dce79372f243f83f3e266caf2eb611775a2d5334f8eb06e055e2c4f7eda18648';
   const baseId = 'appEdx3GRuIx1V5YD';
   const tabela = 'Pedidos';
 
