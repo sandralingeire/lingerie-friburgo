@@ -1,398 +1,223 @@
+// ================== CONFIG ==================
 const baseUrl = "imagens/";
+const WEBHOOK_SHEETS = "https://script.google.com/macros/s/AKfycbzvmLpze3wsidvmWwO9bvjkKjN-jXQvyDkR64dlG-1dMbV0uNlk3jK-di4Bh5DHuyfK/exec";
 
+// ================== DADOS ==================
 const produtos = [
   {
     nome: 'Calcinha 1',
     preco: 7.00,
     fotos: [`${baseUrl}calcinha 1.1.webp`, `${baseUrl}calcinha 1.2.webp`, `${baseUrl}calcinha 1.3.webp`],
     estoque: {
-      'Único': {
-        'Preto': true,
-        'Vermelho': true,
-        'Azul marinho': true,
-        'Branco': false,
-        'Vinho': false,
-        'Rosa': false
-      }
+      'Único': { 'Preto': true, 'Vermelho': true, 'Azul marinho': true, 'Branco': false, 'Vinho': false, 'Rosa': false }
     }
   },
   {
     nome: 'Calcinha 2',
     preco: 5.00,
-    fotos: [`${baseUrl}calcinha 2.1.webp`, `${baseUrl}calcinha 2.2.webp`, `${baseUrl}calcinha 2.3.webp`, `${baseUrl}calcinha 2.4.webp`, `${baseUrl}calcinha 2.5.webp`, `${baseUrl}calcinha 2.6.webp`, `${baseUrl}calcinha 2.7.webp`, `${baseUrl}calcinha 2.8.webp`],
+    fotos: [
+      `${baseUrl}calcinha 2.1.webp`, `${baseUrl}calcinha 2.2.webp`, `${baseUrl}calcinha 2.3.webp`,
+      `${baseUrl}calcinha 2.4.webp`, `${baseUrl}calcinha 2.5.webp`, `${baseUrl}calcinha 2.6.webp`,
+      `${baseUrl}calcinha 2.7.webp`, `${baseUrl}calcinha 2.8.webp`
+    ],
     estoque: {
-      'Único': {
-        'Rosa': false,
-        'Preto': false,
-        'Branco': false,
-        'Verde': true,
-        'Vinho': false,
-        'Azul': true,
-        'Vermelho': false
-      }
+      'Único': { 'Rosa': false, 'Preto': false, 'Branco': false, 'Verde': true, 'Vinho': false, 'Azul': true, 'Vermelho': false }
     }
   },
   {
     nome: 'Calcinha 3',
     preco: 7.00,
-    fotos: [`${baseUrl}Calcinha 3.1.webp`, `${baseUrl}Calcinha 3.2.webp`, `${baseUrl}Calcinha 3.3.webp`, `${baseUrl}Calcinha 3.4.webp`, `${baseUrl}Calcinha 3.5.webp`, `${baseUrl}Calcinha 3.6.webp`],
+    fotos: [
+      `${baseUrl}Calcinha 3.1.webp`, `${baseUrl}Calcinha 3.2.webp`,
+      `${baseUrl}Calcinha 3.3.webp`, `${baseUrl}Calcinha 3.4.webp`,
+      `${baseUrl}Calcinha 3.5.webp`, `${baseUrl}Calcinha 3.6.webp`
+    ],
     estoque: {
-      'P': {
-        'Roxo': true,
-        'Preto': true,
-        'Verde': true,
-        'Vermelho': true,
-        'Rosa': true
-      },
-      'M': {
-        'Roxo': true,
-        'Preto': true,
-        'Verde': true,
-        'Vermelho': true,
-        'Rosa': false
-      },
-      'G': {
-        'Roxo': true,
-        'Preto': true,
-        'Verde': true,
-        'Vermelho': true,
-        'Rosa': false
-      }
+      'P': { 'Roxo': true, 'Preto': true, 'Verde': true, 'Vermelho': true, 'Rosa': true },
+      'M': { 'Roxo': true, 'Preto': true, 'Verde': true, 'Vermelho': true, 'Rosa': false },
+      'G': { 'Roxo': true, 'Preto': true, 'Verde': true, 'Vermelho': true, 'Rosa': false }
     }
   },
   {
     nome: 'Camisola',
     preco: 25.00,
-    fotos: [`${baseUrl}camisola 1.webp`, `${baseUrl}camisola 2.webp`, `${baseUrl}camisola 3.webp`, `${baseUrl}camisola 4.webp`, `${baseUrl}camisola 5.webp`, `${baseUrl}camisola 6.webp`],
+    fotos: [
+      `${baseUrl}camisola 1.webp`, `${baseUrl}camisola 2.webp`, `${baseUrl}camisola 3.webp`,
+      `${baseUrl}camisola 4.webp`, `${baseUrl}camisola 5.webp`, `${baseUrl}camisola 6.webp`
+    ],
     estoque: {
-      'P': {
-        'Romance': true,
-        'Branco com preto': false,
-        'Vermelho': false,
-        'Preto': false,
-        'Azul': true,
-        'Caramelo': true
-      },
-      'M': {
-        'Romance': true,
-        'Branco com preto': false,
-        'Vermelho': false,
-        'Preto': false,
-        'Azul': true,
-        'Caramelo': true
-      },
-      'G': {
-        'Romance': true,
-        'Branco com preto': false,
-        'Vermelho': false,
-        'Preto': false,
-        'Azul': true,
-        'Caramelo': true
-      }
+      'P': { 'Romance': true, 'Branco com preto': false, 'Vermelho': false, 'Preto': false, 'Azul': true, 'Caramelo': true },
+      'M': { 'Romance': true, 'Branco com preto': false, 'Vermelho': false, 'Preto': false, 'Azul': true, 'Caramelo': true },
+      'G': { 'Romance': true, 'Branco com preto': false, 'Vermelho': false, 'Preto': false, 'Azul': true, 'Caramelo': true }
     }
   },
   {
     nome: 'Conjunto 1',
     preco: 22.00,
-    fotos: [`${baseUrl}conjunto 1.1.webp`, `${baseUrl}conjunto 1.2.webp`, `${baseUrl}conjunto 1.3.webp`, `${baseUrl}conjunto 1.4.webp`],
+    fotos: [
+      `${baseUrl}conjunto 1.1.webp`, `${baseUrl}conjunto 1.2.webp`,
+      `${baseUrl}conjunto 1.3.webp`, `${baseUrl}conjunto 1.4.webp`
+    ],
     estoque: {
-      'P': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': false,
-        'Rosa': false,
-        'Roxo': true
-      },
-      'M': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': false,
-        'Rosa': false,
-        'Roxo': true
-      },
-      'G': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': false,
-        'Rosa': false,
-        'Roxo': true
-      }
+      'P': { 'Preto': true, 'Vermelho': true, 'Branco': false, 'Rosa': false, 'Roxo': true },
+      'M': { 'Preto': true, 'Vermelho': true, 'Branco': false, 'Rosa': false, 'Roxo': true },
+      'G': { 'Preto': true, 'Vermelho': true, 'Branco': false, 'Rosa': false, 'Roxo': true }
     }
   },
   {
     nome: 'Conjunto 2',
     preco: 18.00,
-    fotos: [`${baseUrl}conjunto 2.1.webp`, `${baseUrl}conjunto 2.2.webp`, `${baseUrl}conjunto 2.3.webp`, `${baseUrl}conjunto 2.4.webp`, `${baseUrl}conjunto 2.5.webp`, `${baseUrl}conjunto 2.6.webp`, `${baseUrl}conjunto 2.7.webp`],
+    fotos: [
+      `${baseUrl}conjunto 2.1.webp`, `${baseUrl}conjunto 2.2.webp`, `${baseUrl}conjunto 2.3.webp`,
+      `${baseUrl}conjunto 2.4.webp`, `${baseUrl}conjunto 2.5.webp`, `${baseUrl}conjunto 2.6.webp`,
+      `${baseUrl}conjunto 2.7.webp`
+    ],
     estoque: {
-      'P': {
-        'Preto': true,
-        'Vermelho': true,
-        'Roxo': false,
-        'Branco': true,
-        'Azul': true
-      },
-      'M': {
-        'Preto': true,
-        'Vermelho': true,
-        'Roxo': false,
-        'Branco': true,
-        'Azul': true
-      },
-      'G': {
-        'Preto': true,
-        'Vermelho': true,
-        'Roxo': true,
-        'Branco': true,
-        'Azul': true
-      }
+      'P': { 'Preto': true, 'Vermelho': true, 'Roxo': false, 'Branco': true, 'Azul': true },
+      'M': { 'Preto': true, 'Vermelho': true, 'Roxo': false, 'Branco': true, 'Azul': true },
+      'G': { 'Preto': true, 'Vermelho': true, 'Roxo': true, 'Branco': true, 'Azul': true }
     }
   },
   {
     nome: 'Conjunto 3',
     preco: 18.00,
-    fotos: [`${baseUrl}conjunto 3.1.webp`, `${baseUrl}conjunto 3.2.webp`, `${baseUrl}conjunto 3.3.webp`, `${baseUrl}conjunto 3.4.webp`],
+    fotos: [
+      `${baseUrl}conjunto 3.1.webp`, `${baseUrl}conjunto 3.2.webp`,
+      `${baseUrl}conjunto 3.3.webp`, `${baseUrl}conjunto 3.4.webp`
+    ],
     estoque: {
-      'P': {
-        'Rosa': true,
-        'Verde': true,
-        'Azul': true,
-        'Vinho': true,
-        'Preto': true
-      },
-      'M': {
-        'Rosa': true,
-        'Verde': true,
-        'Azul': true,
-        'Vinho': true,
-        'Preto': true
-      },
-      'G': {
-        'Rosa': false,
-        'Verde': false,
-        'Azul': false,
-        'Vinho': false,
-        'Preto': false
-      }
+      'P': { 'Rosa': true, 'Verde': true, 'Azul': true, 'Vinho': true, 'Preto': true },
+      'M': { 'Rosa': true, 'Verde': true, 'Azul': true, 'Vinho': true, 'Preto': true },
+      'G': { 'Rosa': false, 'Verde': false, 'Azul': false, 'Vinho': false, 'Preto': false }
     }
   },
   {
     nome: 'Conjunto 4',
     preco: 30.00,
-    fotos: [`${baseUrl}conjunto 4.1.webp`, `${baseUrl}conjunto 4.2.webp`, `${baseUrl}conjunto 4.3.webp`, `${baseUrl}conjunto 4.4.webp`],
+    fotos: [
+      `${baseUrl}conjunto 4.1.webp`, `${baseUrl}conjunto 4.2.webp`,
+      `${baseUrl}conjunto 4.3.webp`, `${baseUrl}conjunto 4.4.webp`
+    ],
     estoque: {
-      'P': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': false,
-        'Rosa': false,
-        'Roxo': true
-      },
-      'M': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': false,
-        'Rosa': false,
-        'Roxo': true
-      },
-      'G': {
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': false,
-        'Rosa': false,
-        'Roxo': true
-      }
+      'P': { 'Preto': true, 'Vermelho': true, 'Branco': false, 'Rosa': false, 'Roxo': true },
+      'M': { 'Preto': true, 'Vermelho': true, 'Branco': false, 'Rosa': false, 'Roxo': true },
+      'G': { 'Preto': true, 'Vermelho': true, 'Branco': false, 'Rosa': false, 'Roxo': true }
     }
   },
   {
     nome: 'Conjunto 5',
     preco: 20.00,
-    fotos: [`${baseUrl}conjunto 5.1.webp`, `${baseUrl}conjunto 5.2.webp`, `${baseUrl}conjunto 5.3.webp`, `${baseUrl}conjunto 5.4.webp`, `${baseUrl}conjunto 5.5.webp`],
+    fotos: [
+      `${baseUrl}conjunto 5.1.webp`, `${baseUrl}conjunto 5.2.webp`,
+      `${baseUrl}conjunto 5.3.webp`, `${baseUrl}conjunto 5.4.webp`,
+      `${baseUrl}conjunto 5.5.webp`
+    ],
     estoque: {
-      'P': {
-        'Rosa': true,
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': true,
-        'Roxo': true
-      },
-      'M': {
-        'Rosa': true,
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': true,
-        'Roxo': true
-      },
-      'G': {
-        'Rosa': true,
-        'Preto': true,
-        'Vermelho': true,
-        'Branco': true,
-        'Roxo': true
-      }
+      'P': { 'Rosa': true, 'Preto': true, 'Vermelho': true, 'Branco': true, 'Roxo': true },
+      'M': { 'Rosa': true, 'Preto': true, 'Vermelho': true, 'Branco': true, 'Roxo': true },
+      'G': { 'Rosa': true, 'Preto': true, 'Vermelho': true, 'Branco': true, 'Roxo': true }
     }
   },
   {
-  nome: 'Conjunto 6',
-  preco: 18.00,
-  fotos: [
-    `${baseUrl}Conjunto 6.1.webp`,
-    `${baseUrl}Conjunto 6.2.webp`,
-    `${baseUrl}Conjunto 6.3.webp`,
-    `${baseUrl}Conjunto 6.4.webp`,
-    `${baseUrl}Conjunto 6.5.webp`,
-    `${baseUrl}Conjunto 6.6.webp`
-  ],
-  estoque: {
-    'P': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': true,
-      'Azul': true,
-      'Rosa': true
-    },
-    'M': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': true,
-      'Azul': true,
-      'Rosa': true
-    },
-    'G': {
-      'Preto': true,
-      'Vermelho': true,
-      'Branco': true,
-      'Azul': true,
-      'Rosa': true
+    nome: 'Conjunto 6',
+    preco: 18.00,
+    fotos: [
+      `${baseUrl}Conjunto 6.1.webp`, `${baseUrl}Conjunto 6.2.webp`,
+      `${baseUrl}Conjunto 6.3.webp`, `${baseUrl}Conjunto 6.4.webp`,
+      `${baseUrl}Conjunto 6.5.webp`, `${baseUrl}Conjunto 6.6.webp`
+    ],
+    estoque: {
+      'P': { 'Preto': true, 'Vermelho': true, 'Branco': true, 'Azul': true, 'Rosa': true },
+      'M': { 'Preto': true, 'Vermelho': true, 'Branco': true, 'Azul': true, 'Rosa': true },
+      'G': { 'Preto': true, 'Vermelho': true, 'Branco': true, 'Azul': true, 'Rosa': true }
     }
-  }
-},
+  },
   {
     nome: 'Conjunto de 3 Peças',
     preco: 28.00,
-    fotos: [`${baseUrl}conjunto de 3 peças 1.webp`, `${baseUrl}conjunto de 3 peças 2.webp`, `${baseUrl}conjunto de 3 peças 3.webp`, `${baseUrl}conjunto de 3 peças 4.webp`, `${baseUrl}conjunto de 3 peças 5.webp`, `${baseUrl}conjunto de 3 peças 6.webp`, `${baseUrl}conjunto de 3 peças 7.webp`],
+    fotos: [
+      `${baseUrl}conjunto de 3 peças 1.webp`, `${baseUrl}conjunto de 3 peças 2.webp`,
+      `${baseUrl}conjunto de 3 peças 3.webp`, `${baseUrl}conjunto de 3 peças 4.webp`,
+      `${baseUrl}conjunto de 3 peças 5.webp`, `${baseUrl}conjunto de 3 peças 6.webp`,
+      `${baseUrl}conjunto de 3 peças 7.webp`
+    ],
     estoque: {
-      'M': {
-        'Vermelho': true,
-        'Preto': true,
-        'Roxo': true,
-        'Azul': true,
-        'Rosa': true
-      },
-      'G': {
-        'Vermelho': true,
-        'Preto': true,
-        'Roxo': true,
-        'Azul': true,
-        'Rosa': true
-      },
-      'GG': {
-        'Vermelho': true,
-        'Preto': true,
-        'Roxo': true,
-        'Azul': true,
-        'Rosa': true
-     }
+      'M': { 'Vermelho': true, 'Preto': true, 'Roxo': true, 'Azul': true, 'Rosa': true },
+      'G': { 'Vermelho': true, 'Preto': true, 'Roxo': true, 'Azul': true, 'Rosa': true },
+      'GG': { 'Vermelho': true, 'Preto': true, 'Roxo': true, 'Azul': true, 'Rosa': true }
     }
   },
-{
+  {
     nome: 'Pijama Canelado',
     preco: 25.00,
-    fotos: [`${baseUrl}Pijama canelado 1.jpg`, `${baseUrl}Pijama canelado 2.jpg`, `${baseUrl}Pijama canelado 3.jpg`, `${baseUrl}Pijama canelado 4.jpg`],
+    fotos: [
+      `${baseUrl}Pijama canelado 1.jpg`, `${baseUrl}Pijama canelado 2.jpg`,
+      `${baseUrl}Pijama canelado 3.jpg`, `${baseUrl}Pijama canelado 4.jpg`
+    ],
     estoque: {
-      'M': {
-        'Lua - Elástico preto': true,
-        'Cacto - Elástico verde': true,
-        'Bala - Elástico azul': true,
-        'Coração - Elástico vermelho': true
-      },
-      'G': {
-        'Lua - Elástico preto': true,
-        'Cacto - Elástico verde': true,
-        'Bala - Elástico azul': true,
-        'Coração - Elástico vermelho': true
-      },
-      'GG': {
-        'Lua - Elástico preto': true,
-        'Cacto - Elástico verde': true,
-        'Bala - Elástico azul': true,
-        'Coração - Elástico vermelho': true
-      }
+      'M': { 'Lua - Elástico preto': true, 'Cacto - Elástico verde': true, 'Bala - Elástico azul': true, 'Coração - Elástico vermelho': true },
+      'G': { 'Lua - Elástico preto': true, 'Cacto - Elástico verde': true, 'Bala - Elástico azul': true, 'Coração - Elástico vermelho': true },
+      'GG': { 'Lua - Elástico preto': true, 'Cacto - Elástico verde': true, 'Bala - Elástico azul': true, 'Coração - Elástico vermelho': true }
     }
   }
 ];
 
-
+// ================== ESTADO ==================
 const carrinho = [];
 let produtoAtual = null;
 
+// ================== UTIL ==================
+const br = (v) => Number(v).toFixed(2).replace('.', ',');
+
+// ================== UI PRODUTOS ==================
 function renderProdutos() {
   const container = document.getElementById('produtos');
+  if (!container) return;
+  container.innerHTML = ''; // evita duplicatas
+
   produtos.forEach((p, i) => {
     const div = document.createElement('div');
     div.className = 'produto-card shadow rounded-lg p-4 bg-rose-200 text-center';
     div.innerHTML = `
       <img src="${p.fotos[0]}" alt="${p.nome}" width="150" class="mx-auto mb-3 rounded" />
       <h3 class="font-semibold text-base text-gray-900 mb-1">${p.nome}</h3>
-      <p class="text-pink-700 font-bold mb-1">R$ ${p.preco.toFixed(2)}</p>
-      <button onclick="abrirModal(${i})" class="text-sm text-blue-600 hover:underline">Ver Detalhes</button>
+      <p class="text-pink-700 font-bold mb-1">R$ ${br(p.preco)}</p>
+      <button class="text-sm text-blue-600 hover:underline">Ver Detalhes</button>
     `;
+    div.querySelector('button').addEventListener('click', () => abrirModal(i));
     container.appendChild(div);
   });
 }
 
+// ================== MODAL ==================
 function abrirModal(index) {
   produtoAtual = produtos[index];
 
   const tamanhosDisponiveis = Object.keys(produtoAtual.estoque).filter(tamanho => {
-    const coresDisponiveis = produtoAtual.estoque[tamanho];
-    return Object.values(coresDisponiveis).some(disp => disp);
+    const cores = produtoAtual.estoque[tamanho];
+    return Object.values(cores).some(Boolean);
   });
 
-  const gerarOpcoesCor = (tamanhoSelecionado) => {
-    const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
-    return Object.keys(coresDisponiveis)
-      .filter(cor => coresDisponiveis[cor])
-      .map(cor => `<option value="${cor}">${cor}</option>`)
-      .join('');
-  };
-
-  function atualizarCoresDisponiveis() {
-    const tamanhoSelecionado = document.getElementById('modalTamanho').value;
-    const selectCor = document.getElementById('modalCor');
-
-    if (!produtoAtual.estoque[tamanhoSelecionado]) {
-      selectCor.innerHTML = `<option value="">Sem cores disponíveis</option>`;
-      return;
-    }
-
-    const coresDisponiveis = produtoAtual.estoque[tamanhoSelecionado];
-    const coresFiltradas = Object.keys(coresDisponiveis).filter(cor => coresDisponiveis[cor]);
-
-    if (coresFiltradas.length > 0) {
-      selectCor.innerHTML = coresFiltradas.map(cor => `<option value="${cor}">${cor}</option>`).join('');
-    } else {
-      selectCor.innerHTML = `<option value="">Sem cores disponíveis</option>`;
-    }
-  }
-
   const modalContent = document.getElementById('modalContent');
+  if (!modalContent) return;
+
   modalContent.innerHTML = `
     <div class="flex flex-col gap-6 md:flex-row w-full max-w-4xl mx-auto font-sans">
       <div class="md:w-1/2 w-full">
         <img id="imagemPrincipal" src="${produtoAtual.fotos[0]}" class="w-full max-h-[300px] md:max-h-[500px] object-contain rounded border mx-auto" />
         <div id="modalMiniaturas" class="flex gap-2 flex-wrap justify-center mt-2">
-          ${produtoAtual.fotos.map(f => `<img src="${f}" width="50" onclick="document.getElementById('imagemPrincipal').src='${f}'" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
+          ${produtoAtual.fotos.map(f => `<img src="${f}" width="50" class="rounded border cursor-pointer hover:border-pink-500" />`).join('')}
         </div>
       </div>
 
       <div class="md:w-1/2 w-full text-sm">
-        <h2 id="modalNome" class="text-lg font-semibold mb-1 text-center md:text-left">${produtoAtual.nome}</h2>
-        <p class="text-pink-700 font-bold text-center md:text-left mb-3 text-xl">R$ ${produtoAtual.preco.toFixed(2)}</p>
+        <h2 class="text-lg font-semibold mb-1 text-center md:text-left">${produtoAtual.nome}</h2>
+        <p class="text-pink-700 font-bold text-center md:text-left mb-3 text-xl">R$ ${br(produtoAtual.preco)}</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
           <div>
             <label class="text-xs font-medium">Tamanho</label>
-            <select id="modalTamanho" class="w-full border rounded px-2 py-1 text-sm" onchange="atualizarCoresDisponiveis()">
+            <select id="modalTamanho" class="w-full border rounded px-2 py-1 text-sm">
               ${tamanhosDisponiveis.map(t => `<option value="${t}">${t}</option>`).join('')}
             </select>
           </div>
@@ -407,27 +232,54 @@ function abrirModal(index) {
         </div>
 
         <div class="flex justify-between gap-2">
-          <button onclick="adicionarAoCarrinho()" class="bg-pink-600 text-white px-4 py-2 rounded text-sm w-1/2">Adicionar</button>
-          <button onclick="fecharModal()" class="border border-gray-400 text-gray-600 px-4 py-2 rounded text-sm w-1/2">Fechar</button>
+          <button id="btnAdicionar" class="bg-pink-600 text-white px-4 py-2 rounded text-sm w-1/2">Adicionar</button>
+          <button id="btnFechar" class="border border-gray-400 text-gray-600 px-4 py-2 rounded text-sm w-1/2">Fechar</button>
         </div>
       </div>
     </div>
   `;
 
-  document.getElementById('modal').style.display = 'flex';
+  // troca imagem principal ao clicar miniatura
+  modalContent.querySelectorAll('#modalMiniaturas img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('imagemPrincipal').src = img.src;
+    });
+  });
+
+  const selectTamanho = document.getElementById('modalTamanho');
+  const selectCor = document.getElementById('modalCor');
+
+  function atualizarCoresDisponiveis() {
+    const tamanhoSelecionado = selectTamanho.value;
+    const cores = produtoAtual.estoque[tamanhoSelecionado] || {};
+    const coresAtivas = Object.keys(cores).filter(c => cores[c]);
+    selectCor.innerHTML = coresAtivas.length
+      ? coresAtivas.map(c => `<option value="${c}">${c}</option>`).join('')
+      : `<option value="">Sem cores disponíveis</option>`;
+  }
+
+  selectTamanho.addEventListener('change', atualizarCoresDisponiveis);
   atualizarCoresDisponiveis();
+
+  document.getElementById('btnAdicionar').addEventListener('click', adicionarAoCarrinho);
+  document.getElementById('btnFechar').addEventListener('click', fecharModal);
+
+  const modal = document.getElementById('modal');
+  if (modal) modal.style.display = 'flex';
 }
 
 function fecharModal() {
-  document.getElementById('modal').style.display = 'none';
+  const modal = document.getElementById('modal');
+  if (modal) modal.style.display = 'none';
 }
 
+// ================== CARRINHO ==================
 function adicionarAoCarrinho() {
   const tamanho = document.getElementById('modalTamanho').value;
   const cor = document.getElementById('modalCor').value;
-  const qtd = parseInt(document.getElementById('modalQtd').value);
+  const qtd = Math.max(1, parseInt(document.getElementById('modalQtd').value, 10) || 1);
 
-  if (!cor || cor === "") {
+  if (!cor) {
     alert("Selecione uma cor válida.");
     return;
   }
@@ -447,8 +299,9 @@ function adicionarAoCarrinho() {
 function renderCarrinho() {
   const ul = document.getElementById('listaCarrinho');
   const totalSpan = document.getElementById('totalCarrinho');
-  ul.innerHTML = '';
+  if (!ul || !totalSpan) return;
 
+  ul.innerHTML = '';
   let total = 0;
 
   carrinho.forEach((item, index) => {
@@ -458,13 +311,14 @@ function renderCarrinho() {
 
     li.className = 'flex justify-between items-center bg-white rounded px-3 py-2 shadow';
     li.innerHTML = `
-      <span>${item.nome} - Tam: ${item.tamanho} - Cor: ${item.cor} - Qtd: ${item.quantidade} - R$ ${subtotal.toFixed(2).replace('.', ',')}</span>
-      <button onclick="removerItemCarrinho(${index})" class="text-red-600 hover:underline ml-4">Remover</button>
+      <span>${item.nome} - Tam: ${item.tamanho} - Cor: ${item.cor} - Qtd: ${item.quantidade} - R$ ${br(subtotal)}</span>
+      <button class="text-red-600 hover:underline ml-4">Remover</button>
     `;
+    li.querySelector('button').addEventListener('click', () => removerItemCarrinho(index));
     ul.appendChild(li);
   });
 
-  totalSpan.innerText = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+  totalSpan.innerText = `Total: R$ ${br(total)}`;
 }
 
 function removerItemCarrinho(index) {
@@ -472,14 +326,11 @@ function removerItemCarrinho(index) {
   renderCarrinho();
 }
 
-renderProdutos();
-
-// Usa seu Apps Script publicado
-const WEBHOOK_SHEETS = 'https://script.google.com/macros/s/AKfycbzvmLpze3wsidvmWwO9bvjkKjN-jXQvyDkR64dlG-1dMbV0uNlk3jK-di4Bh5DHuyfK/exec';
-
+// ================== CHECKOUT (Opção 1: no-cors) ==================
 async function finalizarPedido() {
-  const nome  = document.getElementById('inputNome').value.trim();
-  const turma = document.getElementById('inputTurma').value;
+  const btn = document.getElementById('btnFinalizar');
+  const nome  = (document.getElementById('inputNome')?.value || '').trim();
+  const turma = document.getElementById('inputTurma')?.value || '';
 
   if (!nome || carrinho.length === 0) {
     alert('Preencha seu nome e adicione pelo menos um item ao carrinho.');
@@ -500,35 +351,34 @@ async function finalizarPedido() {
     }))
   };
 
-  const btn = document.getElementById('btnFinalizar');
   if (btn) btn.disabled = true;
 
   try {
-    const resp = await fetch(WEBHOOK_SHEETS, {
+    // Sem preflight e sem leitura de resposta (confirmação otimista)
+    await fetch(WEBHOOK_SHEETS, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',                   // evita CORS/preflight
+      headers: { 'Content-Type': 'text/plain' }, // evitar 'application/json'
       body: JSON.stringify(payload)
     });
 
-    const txt = await resp.text();
-    let data; try { data = JSON.parse(txt); } catch { data = { ok:false, raw: txt }; }
+    alert('Pedido enviado!');
 
-    if (!resp.ok || !data.ok) {
-      console.error('Erro Sheets', resp.status, data);
-      alert('Falha ao enviar para a planilha. Veja o console para detalhes.');
-      return;
-    }
-
-    alert('Pedido enviado com sucesso!');
+    // limpar estado/UI
     carrinho.length = 0;
     renderCarrinho();
-    document.getElementById('inputNome').value = '';
-    document.getElementById('inputTurma').selectedIndex = 0;
+    const nomeEl = document.getElementById('inputNome');
+    const turmaEl = document.getElementById('inputTurma');
+    if (nomeEl) nomeEl.value = '';
+    if (turmaEl && 'selectedIndex' in turmaEl) turmaEl.selectedIndex = 0;
 
   } catch (e) {
     console.error('Erro de rede:', e);
-    alert('Erro de rede ao falar com o Apps Script.');
+    alert('Não foi possível enviar o pedido (rede). Tente novamente.');
   } finally {
     if (btn) btn.disabled = false;
   }
 }
+
+// ================== INIT ==================
+renderProdutos();
