@@ -106,16 +106,15 @@ const produtos = [
   },
   {
     nome: 'Conjunto 5',
-    preco: 20.00,
+    preco: 30.00,
     fotos: [
       `${baseUrl}conjunto 5.1.webp`, `${baseUrl}conjunto 5.2.webp`,
-      `${baseUrl}conjunto 5.3.webp`, `${baseUrl}conjunto 5.4.webp`,
-      `${baseUrl}conjunto 5.5.webp`
+      `${baseUrl}conjunto 5.3.webp`, `${baseUrl}conjunto 5.4.webp`
     ],
     estoque: {
-      'P': { 'Rosa': true, 'Preto': true, 'Vermelho': true, 'Branco': true, 'Roxo': true },
-      'M': { 'Rosa': true, 'Preto': true, 'Vermelho': true, 'Branco': true, 'Roxo': true },
-      'G': { 'Rosa': true, 'Preto': true, 'Vermelho': true, 'Branco': true, 'Roxo': true }
+      'P': { 'Preto': true, 'Vermelho': true },
+      'M': { 'Preto': true, 'Vermelho': true },
+      'G': { 'Preto': true, 'Vermelho': true }
     }
   },
   {
