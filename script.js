@@ -531,5 +531,4 @@ async function finalizarPedido() {
   } finally {
     if (btn) btn.disabled = false;
   }
-}
 
