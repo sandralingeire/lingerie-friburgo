@@ -474,8 +474,11 @@ function removerItemCarrinho(index) {
 
 renderProdutos();
 
+// Usa seu Apps Script publicado
+const WEBHOOK_SHEETS = 'https://script.google.com/macros/s/AKfycbzvmLpze3wsidvmWwO9bvjkKjN-jXQvyDkR64dlG-1dMbV0uNlk3jK-di4Bh5DHuyfK/exec';
+
 async function finalizarPedido() {
-  const nome = document.getElementById('inputNome').value.trim();
+  const nome  = document.getElementById('inputNome').value.trim();
   const turma = document.getElementById('inputTurma').value;
 
   if (!nome || carrinho.length === 0) {
@@ -483,36 +486,54 @@ async function finalizarPedido() {
     return;
   }
 
-  const token = 'pat961ZqqoraAhIJq.dce79372f243f83f3e266caf2eb611775a2d5334f8eb06e055e2c4f7eda18648';
-  const baseId = 'appEdx3GRuIx1V5YD';
-  const tabela = 'Pedidos';
+  // monta 1 linha por item do carrinho
+  const payload = {
+    records: carrinho.map(item => ({
+      fields: {
+        "Nome": nome,
+        "Turma": turma,
+        "Produto": item.nome,
+        "Tamanho": item.tamanho,
+        "Cor": item.cor,
+        "Preço": Number(item.preco),
+        "Quantidade": Number(item.quantidade)
+      }
+    }))
+  };
 
-  for (const item of carrinho) {
-    const data = {
-      records: [
-        {
-          fields: {
-            "Nome": nome,
-            "Turma": turma,
-            "Produto": item.nome,
-            "Tamanho": item.tamanho,
-            "Cor": item.cor,
-            "Preço": item.preco,
-            "Quantidade": item.quantidade
-          }
-        }
-      ]
-    };
+  const btn = document.getElementById('btnFinalizar');
+  if (btn) btn.disabled = true;
 
-    await fetch(`https://api.airtable.com/v0/${baseId}/${tabela}`, {
+  try {
+    const resp = await fetch(WEBHOOK_SHEETS, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
+
+    const txt = await resp.text();
+    let data; try { data = JSON.parse(txt); } catch { data = { ok:false, raw: txt }; }
+
+    if (!resp.ok || !data.ok) {
+      console.error('Erro Sheets', resp.status, data);
+      alert('Falha ao enviar para a planilha. Veja o console para detalhes.');
+      return;
+    }
+
+    alert('Pedido enviado com sucesso!');
+    carrinho.length = 0;
+    renderCarrinho();
+    document.getElementById('inputNome').value = '';
+    document.getElementById('inputTurma').selectedIndex = 0;
+
+  } catch (e) {
+    console.error('Erro de rede:', e);
+    alert('Erro de rede ao falar com o Apps Script.');
+  } finally {
+    if (btn) btn.disabled = false;
   }
+}
+
 
   alert('Pedido enviado com sucesso!');
   carrinho.length = 0;
