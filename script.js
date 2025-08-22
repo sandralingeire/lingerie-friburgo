@@ -32,6 +32,18 @@ const produtos = [
       `${baseUrl}Calcinha 3.3.webp`, `${baseUrl}Calcinha 3.4.webp`,
       `${baseUrl}Calcinha 3.5.webp`, `${baseUrl}Calcinha 3.6.webp`
     ],
+     estoque: {
+      'Único': { 'Vermelho': true }
+    }
+  },
+    {
+    nome: 'Calcinha 4',
+    preco: 5.00,
+    fotos: [
+      `${baseUrl}Calcinha 4.1.webp`, `${baseUrl}Calcinha 4.2.webp`,
+      `${baseUrl}Calcinha 4.3.webp`, `${baseUrl}Calcinha 4.4.webp`,
+      `${baseUrl}Calcinha 4.5.webp`
+    ],
     estoque: {
       'P': { 'Roxo': true, 'Preto': true, 'Verde': true, 'Vermelho': true, 'Rosa': true },
       'M': { 'Roxo': true, 'Preto': true, 'Verde': true, 'Vermelho': true, 'Rosa': false },
