@@ -44,9 +44,9 @@ const produtos = [
       `${baseUrl}camisola 4.webp`, `${baseUrl}camisola 5.webp`, `${baseUrl}camisola 6.webp`
     ],
     estoque: {
-      'P': { 'Romance': true, 'Branco com preto': false, 'Vermelho': false, 'Preto': false, 'Azul': true, 'Caramelo': true },
-      'M': { 'Romance': true, 'Branco com preto': false, 'Vermelho': false, 'Preto': false, 'Azul': true, 'Caramelo': true },
-      'G': { 'Romance': true, 'Branco com preto': false, 'Vermelho': false, 'Preto': false, 'Azul': true, 'Caramelo': true }
+      'P': { 'Romance': false, 'Branco com preto': false, 'Vermelho': true, 'Preto': true, 'Azul': false, 'Caramelo': false },
+      'M': { 'Romance': false, 'Branco com preto': false, 'Vermelho': true, 'Preto': true, 'Azul': false, 'Caramelo': false },
+      'G': { 'Romance': false, 'Branco com preto': false, 'Vermelho': true, 'Preto': true, 'Azul': false, 'Caramelo': false }
     }
   },
   {
