@@ -150,8 +150,8 @@ const produtos = [
     nome: 'Pijama Canelado',
     preco: 25.00,
     fotos: [
-      `${baseUrl}Pijama canelado 1.jpg`, `${baseUrl}Pijama canelado 2.jpg`,
-      `${baseUrl}Pijama canelado 3.jpg`, `${baseUrl}Pijama canelado 4.jpg`
+      `${baseUrl}Pijama canelado 1.webp`, `${baseUrl}Pijama canelado 2.webp`,
+      `${baseUrl}Pijama canelado 3.webp`, `${baseUrl}Pijama canelado 4.webp`, `${baseUrl}Pijama canelado 5.webp`, `${baseUrl}Pijama canelado 6.webp`
     ],
     estoque: {
       'M': { 'Lua - Elástico preto': true, 'Cacto - Elástico verde': true, 'Bala - Elástico azul': true, 'Coração - Elástico vermelho': true },
