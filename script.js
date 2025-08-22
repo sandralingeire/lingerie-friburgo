@@ -45,9 +45,7 @@ const produtos = [
       `${baseUrl}Calcinha 4.5.webp`
     ],
     estoque: {
-      'P': { 'Roxo': true, 'Preto': true, 'Verde': true, 'Vermelho': true, 'Rosa': true },
-      'M': { 'Roxo': true, 'Preto': true, 'Verde': true, 'Vermelho': true, 'Rosa': false },
-      'G': { 'Roxo': true, 'Preto': true, 'Verde': true, 'Vermelho': true, 'Rosa': false }
+     'Único': { 'Vermelho': true }
     }
   },
   {
