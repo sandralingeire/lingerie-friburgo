@@ -21,7 +21,7 @@ const produtos = [
       `${baseUrl}calcinha 2.7.webp`, `${baseUrl}calcinha 2.8.webp`
     ],
     estoque: {
-      'Único': { 'Rosa': false, 'Preto': false, 'Branco': false, 'Verde': true, 'Vinho': false, 'Azul': true, 'Vermelho': false }
+      'Único': { 'Rosa': false, 'Preto': false, 'Branco': false, 'Verde': false, 'Vinho': false, 'Azul': false, 'Vermelho': false }
     }
   },
   {
